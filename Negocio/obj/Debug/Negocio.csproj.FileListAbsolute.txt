@@ -53,14 +53,14 @@ C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Negocio\bin\Debug\E
 C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Negocio\obj\Debug\Negocio.dll
 C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Negocio\obj\Debug\Negocio.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\bin\Debug\Negocio.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\bin\Debug\Negocio.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\bin\Debug\Dao.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\bin\Debug\Entidades.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\bin\Debug\Dao.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\bin\Debug\Entidades.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.csproj.CopyComplete
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.pdb
+D:\TodoAccesoriosFINAL\Negocio\bin\Debug\Negocio.dll
+D:\TodoAccesoriosFINAL\Negocio\bin\Debug\Negocio.pdb
+D:\TodoAccesoriosFINAL\Negocio\bin\Debug\Dao.dll
+D:\TodoAccesoriosFINAL\Negocio\bin\Debug\Entidades.dll
+D:\TodoAccesoriosFINAL\Negocio\bin\Debug\Dao.pdb
+D:\TodoAccesoriosFINAL\Negocio\bin\Debug\Entidades.pdb
+D:\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+D:\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+D:\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+D:\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.dll
+D:\TodoAccesoriosFINAL\Negocio\obj\Debug\Negocio.pdb

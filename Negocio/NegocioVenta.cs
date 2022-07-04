@@ -84,7 +84,11 @@ namespace Negocio
                 return false;
         }
 
-
+        public string getNroVenta()
+        {
+            DataTable dt = Dao.getNroVenta();
+            return dt.Rows[0][0].ToString();
+        }
 
         public DataTable GetFiltroVent(String Filtro)
         {

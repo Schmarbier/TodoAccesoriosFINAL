@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entidades;
+using Negocio;
+using System.Data;
 
 namespace Vista.Forms
 {
@@ -58,6 +61,68 @@ namespace Vista.Forms
             btn_rp.Visible = true;
             btn_tc.Visible = true;
             btn_tr.Visible = true;
+        }
+
+        protected bool RealizarCompra()
+        {
+            NegocioDetalleVenta negDetalle = new NegocioDetalleVenta();
+            NegocioVenta negVenta = new NegocioVenta();
+
+            DetalleVentas entDetalle = new DetalleVentas();
+
+            /// REGISTRO LA VENTA
+            if(negVenta.AgregarVent((Ventas)Session["venta"]) == false) return false;
+
+            /// REGISTRO EL DETALLE DE VENTA
+
+            entDetalle.NroVent_Detalle = Convert.ToInt32(negVenta.getNroVenta());
+            
+            foreach(DataRow row in ((DataTable)Session["carrito"]).Rows)
+            {
+                entDetalle.IdArt_Detalle = row["ID"].ToString();
+                entDetalle.PrecioArt_Detalle = Convert.ToDecimal(row["Precio"].ToString());
+                entDetalle.Cantidad_Detalle = Convert.ToInt32(row["Cantidad"].ToString());
+                if (negDetalle.AgregarDetalleVenta(entDetalle) == 0) return false;
+            }
+
+            return true;
+        }
+        protected void VaciarTXT()
+        {
+            txtbox_dni.Text = "";
+            txtCodSeguridad.Text = "";
+            txtTitularTarjeta.Text = "";
+            txt_nt.Text = "";
+            txtVencimiento.Text = "";
+            
+        }
+        protected void btnRealizar_Click(object sender, EventArgs e)
+        {
+            if(Panel1.Visible == true || Panel2.Visible == true || Panel3.Visible == true) /// PAGO TARJETA
+            {
+                if (Panel1.Visible == true) /// PAGO TARJETA
+                {
+                    ((Ventas)Session["venta"]).setIdTipoPago("2");
+                }
+                else if (Panel2.Visible == true) /// PAGO RAPIPAGO
+                {
+                    ((Ventas)Session["venta"]).setIdTipoPago("3");
+                }
+                else/// PAGO TRANSFERENCIA
+                {
+                    ((Ventas)Session["venta"]).setIdTipoPago("1");
+                }
+                if (!RealizarCompra()) lblResultado.Text = "Hubo un error";
+                lblResultado.Text = "Compra realizada con exito!";
+                VaciarTXT();
+                return;
+            }
+            else
+            {
+                lblResultado.Text = "Selecciona un metodo de pago!";
+            }
+
+
         }
     }
 }

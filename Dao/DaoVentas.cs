@@ -159,7 +159,10 @@ namespace Dao
             return ad.EjecutarProcAlmacenado(cmd, "SPActualizarVenta");
         }
 
-
+        public DataTable getNroVenta()
+        {
+            return ad.ObtenerTabla("ventas", "SELECT MAX(Ventas.Nro_Vent) FROM VENTAS ");
+        }
 
         public DataTable FiltrarVentas(string filtro)
         {

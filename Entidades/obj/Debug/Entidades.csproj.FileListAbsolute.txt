@@ -16,9 +16,9 @@ C:\Users\lisan\OneDrive\Escritorio\Todo_Accesorios\TodoAccesorios\TodoAccesorios
 C:\Users\lisan\OneDrive\Escritorio\Todo_Accesorios\TodoAccesorios\TodoAccesorios\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\lisan\OneDrive\Escritorio\Todo_Accesorios\TodoAccesorios\TodoAccesorios\Entidades\obj\Debug\Entidades.dll
 C:\Users\lisan\OneDrive\Escritorio\Todo_Accesorios\TodoAccesorios\TodoAccesorios\Entidades\obj\Debug\Entidades.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Entidades\bin\Debug\Entidades.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Entidades\bin\Debug\Entidades.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Entidades\obj\Debug\Entidades.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Entidades\bin\Debug\Entidades.dll
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Entidades\obj\Debug\Entidades.dll
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Entidades\obj\Debug\Entidades.pdb

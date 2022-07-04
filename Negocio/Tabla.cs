@@ -18,15 +18,21 @@ namespace Negocio
             dt.Columns.Add(columna);
             columna = new DataColumn("Precio", System.Type.GetType("System.Decimal"));
             dt.Columns.Add(columna);
+            columna = new DataColumn("Cantidad", System.Type.GetType("System.Int32"));
+            dt.Columns.Add(columna);
+            columna = new DataColumn("Total", System.Type.GetType("System.Decimal"));
+            dt.Columns.Add(columna);
             return dt;
-            
+
         }
-        public void agregarFilas(DataTable tabla, String id, String img, String nombre, String precio)
+        public void agregarFilas(DataTable tabla, String id, String nombre, String precio, String cantidad, String total)
         {
             DataRow dr = tabla.NewRow();
             dr["ID"] = id;
             dr["Nombre"] = nombre;
             dr["Precio"] = Convert.ToDecimal(precio);
+            dr["Cantidad"] = Convert.ToInt32(cantidad);
+            dr["Total"] = Convert.ToDecimal(total);
             tabla.Rows.Add(dr);
         }
         

@@ -66,7 +66,7 @@ namespace Vista.Forms
                 Tabla tabla = new Tabla();
                 Session["producto"] = null;
                 Session["producto"] = tabla.crearTabla();
-                tabla.agregarFilas((DataTable)Session["producto"], id, url, nombre, precio);
+                tabla.agregarFilas((DataTable)Session["producto"], id, nombre, precio, "1", precio);
                 Response.Redirect("Producto.aspx?id=" + id);
             }
         }

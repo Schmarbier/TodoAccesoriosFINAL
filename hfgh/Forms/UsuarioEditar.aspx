@@ -72,11 +72,14 @@
                 <div>DNI<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txt_apellido" ForeColor="Maroon">*</asp:RequiredFieldValidator>
                 &nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblResultadoDNI" runat="server" ForeColor="#CC0000"></asp:Label>
+                        <asp:RegularExpressionValidator ID="reDNI" runat="server" ControlToValidate="txt_dni" ValidationExpression="^\d{8}$" ValidationGroup="Group1" ForeColor="#CC0000">DNI inválido!</asp:RegularExpressionValidator>
                 </div>
                 <asp:TextBox ID="txt_dni" runat="server" Width="100%"></asp:TextBox>
             </div>
             <div class="grupo-info">
                 <div>Telefono<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_telefono" ForeColor="Maroon">*</asp:RequiredFieldValidator>
+                    &nbsp;&nbsp;&nbsp;
+                        <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="txt_telefono" ValidationExpression="^[0-9]*$" ValidationGroup="Group1" ForeColor="#CC0000">Teléfono inválido!</asp:RegularExpressionValidator>
                     </div>
                 <asp:TextBox ID="txt_telefono" runat="server" Width="100%"></asp:TextBox>
             </div>
@@ -100,7 +103,8 @@
                 </asp:DropDownList>
             </div>
             <div class="grupo-info">
-                <div>Domicilio</div>
+                <div>Domicilio<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txt_Domicilio" ForeColor="Maroon">*</asp:RequiredFieldValidator>
+                    </div>
                 <asp:TextBox ID="txt_Domicilio" runat="server" Width="100%"></asp:TextBox>
             </div>
             <div class="grupo-info">

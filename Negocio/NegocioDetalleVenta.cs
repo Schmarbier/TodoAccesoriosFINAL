@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Entidades;
 using Dao;
+using Entidades;
 
 namespace Negocio
 {
@@ -17,6 +18,11 @@ namespace Negocio
         public DataTable GetDetalleVent(int NroVenta)
         {
             return Dao.GetTablaDetalleVentas(NroVenta);
+        }
+
+        public int AgregarDetalleVenta(DetalleVentas aux)
+        {
+            return Dao.AgregarDetalleVenta(aux);
         }
     }
 }

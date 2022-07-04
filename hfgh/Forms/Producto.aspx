@@ -12,7 +12,7 @@
         <tr>
             <td>Articulo<br />
                 <br />
-                <asp:ListView ID="lvProducto" runat="server" DataKeyNames="Id_Art" GroupItemCount="3">
+                <asp:ListView ID="lvProducto" runat="server" GroupItemCount="3" OnSelectedIndexChanged="lvProducto_SelectedIndexChanged">
 <%--                    <AlternatingItemTemplate>
                         <td runat="server" style="background-color:#FFF8DC;">Id_Art:
                             <asp:Label ID="Id_ArtLabel" runat="server" Text='<%# Eval("Id_Art") %>' />
@@ -78,7 +78,10 @@
                             <asp:Label ID="Nombre_ArtLabel" runat="server" Text='<%# Eval("Nombre_Art") %>' />
                             <br />
                             <asp:Label ID="PrecioUnitario_ArtLabel" runat="server" Text='<%# Eval("PrecioUnitario_Art") %>' />
-                            <br /></td>
+                            <br />
+                            
+        
+                        </td>
                     </ItemTemplate>
                     <LayoutTemplate>
                         <table runat="server">
@@ -107,6 +110,12 @@
                             <br /></td>
                     </SelectedItemTemplate>
                 </asp:ListView>
+               
+                <asp:Label ID="lblCantidad" runat="server" Text="Cantidad: "></asp:Label>
+&nbsp;&nbsp;&nbsp;
+                <asp:DropDownList ID="ddlCantidad" runat="server">
+                </asp:DropDownList>
+               
                 <br />
                 <br />
                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" OnClick="btnAgregar_Click" />

@@ -22,17 +22,26 @@
                     <br />
                 <asp:Label ID="lbl_ntc" runat="server" Text="Numero de Tarjeta"></asp:Label>
                     <asp:TextBox ID="txt_nt" runat="server" style="margin-left: 80px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_nt">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_nt" ValidationExpression="^\d{12}$">Número de tarjeta inválido</asp:RegularExpressionValidator>
                     <br />
                     <asp:Label ID="lbl_ttc" runat="server" Text="Titular de Tarjeta"></asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" style="margin-left: 80px"></asp:TextBox>
+                    <asp:TextBox ID="txtTitularTarjeta" runat="server" style="margin-left: 80px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTitularTarjeta">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lbl_venc" runat="server" Text="Vencimiento(MM/AA)"></asp:Label>
-                    <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 80px" Width="57px"></asp:TextBox>
+                    <asp:TextBox ID="txtVencimiento" runat="server" style="margin-left: 80px" Width="57px" TextMode="DateTime"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtVencimiento">*</asp:RequiredFieldValidator>
                     <asp:Label ID="lbl_venc0" runat="server" Text="Código Seguridad" style="margin-left: 80px"></asp:Label>
-                    <asp:TextBox ID="TextBox3" runat="server" style="margin-left: 30px" Width="57px"></asp:TextBox>
+                    <asp:TextBox ID="txtCodSeguridad" runat="server" style="margin-left: 30px" Width="57px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCodSeguridad">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCodSeguridad" ValidationExpression="^\d{3}$">Código de seguridad inválido</asp:RegularExpressionValidator>
                     <br />
                     <asp:Label ID="Label4" runat="server" Text="Cuotas"></asp:Label>
                     <asp:DropDownList ID="DropDownList2" runat="server" style=" margin-left: 30px">
+                        <asp:ListItem>3</asp:ListItem>
+                        <asp:ListItem>6</asp:ListItem>
+                        <asp:ListItem>12</asp:ListItem>
                     </asp:DropDownList>
                     <br />
                     <asp:Label ID="lbl_ntc0" runat="server" Text="Documento"></asp:Label>
@@ -43,6 +52,8 @@
                         <asp:ListItem Value="3">L.E.</asp:ListItem>
                     </asp:DropDownList>
                     <asp:TextBox ID="txtbox_dni" runat="server" style=" margin-left: 30px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtbox_dni">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtbox_dni" ValidationExpression="^\d{8}$">DNI inválido</asp:RegularExpressionValidator>
                     <br />
                        <br />
                     <asp:Label ID="Label5" runat="server" Text="Tarjetas aceptadas por Mercado Pago"></asp:Label>
@@ -101,25 +112,25 @@
                     <br />
                     <asp:Label ID="Label9" runat="server" Text="Datos Bancarios: Banco Santander Río: Cuenta corriente en pesos"></asp:Label>
                     <br />
-                    <asp:Label ID="Label10" runat="server" Text="Sucursal: 111"></asp:Label>
+                    <asp:Label ID="Label10" runat="server" Text="Sucursal: 023"></asp:Label>
                     <br />
-                    <asp:Label ID="Label11" runat="server" Text="Nro de Cuenta: 111111/1"></asp:Label>
-                    <br />
-                    <asp:Label ID="Label12" runat="server" Text="CUIT: 11-11111111-1"></asp:Label>
+                    <asp:Label ID="Label11" runat="server" Text="Nro de Cuenta: 937582/1"></asp:Label>
                     <br />
                     <asp:Label ID="Label13" runat="server" Text="Títular de la cuenta: LA VACA LOLA"></asp:Label>
                     <br />
-                    <asp:Label ID="Label14" runat="server" Text="CUIT: 11-11111111-1"></asp:Label>
+                    <asp:Label ID="Label14" runat="server" Text="CUIT: 21-30283823-3"></asp:Label>
                     <br />
                 </asp:Panel>
                 </div>
     <div></div>
     <br />
     <asp:Label ID="Label3" runat="server" Text="NOTAS DEL PEDIDO"></asp:Label>
+    &nbsp;&nbsp;&nbsp;
+    <asp:Label ID="lblResultado" runat="server"></asp:Label>
     <br />
     <asp:TextBox ID="TextBox4" runat="server" Height="96px" TextMode="MultiLine" Width="690px"></asp:TextBox>
  
     <br />
-    <asp:Button ID="Button3" runat="server" Height="49px" Text="Realizar Pedido" Width="690px" />
+    <asp:Button ID="btnRealizar" runat="server" Height="49px" Text="Realizar Pedido" Width="690px" OnClick="btnRealizar_Click" />
  
 </asp:Content>

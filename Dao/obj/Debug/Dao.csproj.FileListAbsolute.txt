@@ -43,12 +43,12 @@ C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Dao\bin\Debug\Entid
 C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Dao\obj\Debug\Dao.csproj.CopyComplete
 C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Dao\obj\Debug\Dao.dll
 C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Dao\obj\Debug\Dao.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\bin\Debug\Dao.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\bin\Debug\Dao.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\bin\Debug\Entidades.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\bin\Debug\Entidades.pdb
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.csproj.AssemblyReference.cache
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.csproj.CoreCompileInputs.cache
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.csproj.CopyComplete
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.dll
-C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.pdb
+D:\TodoAccesoriosFINAL\Dao\bin\Debug\Dao.dll
+D:\TodoAccesoriosFINAL\Dao\bin\Debug\Dao.pdb
+D:\TodoAccesoriosFINAL\Dao\bin\Debug\Entidades.dll
+D:\TodoAccesoriosFINAL\Dao\bin\Debug\Entidades.pdb
+D:\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.csproj.AssemblyReference.cache
+D:\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.csproj.CoreCompileInputs.cache
+D:\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.csproj.CopyComplete
+D:\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.dll
+D:\TodoAccesoriosFINAL\Dao\obj\Debug\Dao.pdb

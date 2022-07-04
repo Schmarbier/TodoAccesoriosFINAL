@@ -87,6 +87,13 @@ namespace Negocio
             return dao.getProducto(id);
         }
 
+        public int getCantidad (String id)
+        {
+            DataTable aux = dao.getCantidad(id);
+            int cant = Convert.ToInt32(aux.Rows[0][0]);
+            return cant;
+        }
+
         public bool eliminarArt(string id)
         {
             art.Id = id;
