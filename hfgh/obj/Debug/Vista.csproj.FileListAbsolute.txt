@@ -1,0 +1,2 @@
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\hfgh\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\hfgh\obj\Debug\Vista.csproj.CoreCompileInputs.cache

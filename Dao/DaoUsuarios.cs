@@ -37,11 +37,9 @@ namespace Dao
 
         public DataTable getTablaUsuario()
         {
-<<<<<<< HEAD
+
            DataTable tabla = ad.ObtenerTabla("Usuarios", "select DNI_Us,Usuario_Us,Email_Us,IdProv_Us,IdLoc_Us,Domicilio_Us,Departamento_Us,Contraseña_Us,Telefono_Us,Nombre_Us,Apellido_Us,UrlImagen_Us,FechaNac_Us,Tipo_Us,Estado from Usuarios");
-=======
-            DataTable tabla = ad.ObtenerTabla("Usuarios", "select DNI_Us,Usuario_Us,Email_Us,IdProv_Us,IdLoc_Us,Domicilio_Us,Departamento_Us,Contraseña_Us,Telefono_Us,Nombre_Us,Apellido_Us,UrlImagen_Us,FechaNac_Us,Tipo_Us,Estado from Usuarios");
->>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
+
             return tabla;
         }
 
@@ -90,10 +88,7 @@ namespace Dao
             parametro.Value = user.Apellido_Us;
             parametro = cmd.Parameters.Add("@FECHANAC", SqlDbType.Date);
             parametro.Value = user.FechaNac_Us;
-<<<<<<< HEAD
-=======
 
->>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
             return ad.EjecutarProcAlmacenado(cmd, "SPAgregarUsuario");
         }
         public int ActualizarUsuario(Usuario user)

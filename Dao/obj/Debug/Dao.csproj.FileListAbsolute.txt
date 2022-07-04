@@ -34,3 +34,5 @@ C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesorios\TodoAccesorios\Dao\obj\
 C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesorios\TodoAccesorios\Dao\obj\Debug\Dao.csproj.CopyComplete
 C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesorios\TodoAccesorios\Dao\obj\Debug\Dao.dll
 C:\Users\Lucas Fernandez\Documents\GitHub\TodoAccesorios\TodoAccesorios\Dao\obj\Debug\Dao.pdb
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Dao\obj\Debug\Dao.csproj.AssemblyReference.cache
+C:\Users\Roman\Desktop\Carpetas\Proyectos\git\TodoAccesorios\Dao\obj\Debug\Dao.csproj.CoreCompileInputs.cache
