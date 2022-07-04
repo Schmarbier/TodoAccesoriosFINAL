@@ -39,7 +39,7 @@ namespace Vista.Forms
 
         protected void btnComprar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DatosPago.aspx");
+            Response.Redirect("DatosPago.aspx?total=" + lblTotal.Text);
         }
 
         public Decimal CalcularTotal(DataTable tabla)

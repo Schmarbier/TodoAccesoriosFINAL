@@ -48,6 +48,12 @@ namespace Vista.Forms
 
         protected void btnContinuar_Click(object sender, EventArgs e)
         {
+            if(Session["usuario"] == null)
+            {
+                venta.setUsuario("no ingresado");
+            }
+
+            venta.setUsuario(((Usuario)Session["usuario"]).Usuario_Us);
             venta.setEmailUsuario(txtEmail.Text);
             venta.setIdTipoEnvio(ddlTipoEnvio.SelectedValue);
             venta.setNombre(txtNombre.Text);
@@ -59,9 +65,11 @@ namespace Vista.Forms
             else venta.setDepartamento("Sin departamento");
             venta.setCodPostal(Convert.ToInt32(txtCP.Text));
             venta.setIdProvLoc(ddlProvincia.SelectedValue);
+            venta.setFecha(DateTime.Today);
             venta.setIdLoc(ddlLocalidad.SelectedValue);
             if (txtBarrio.Text.Trim() != "") venta.setBarrio(txtBarrio.Text);
             else venta.setBarrio("Sin barrio");
+            venta.setTotal(Convert.ToDecimal(Request.QueryString["total"]));
 
             Session["venta"] = venta;
 
