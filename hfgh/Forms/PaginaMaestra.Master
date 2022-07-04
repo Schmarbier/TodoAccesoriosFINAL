@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaMaestra.master.cs" Inherits="Vista.Forms.PaginaMaestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .head-usuario {
+            text-align: right;
+        }
+        .logo {
+            width: 30%;
+            text-align: left;
+        }
+        .nav-bar{
+            width: 100%;
+        }
+        .categorias{
+            text-align: center;
+            width: 40%;
+        }
+        .busqueda{
+            width: 30%;
+        }
+        .tabla{
+            width: 100%;
+        }
+        .navegacion{
+            width: 33%;
+        }
+        .Pago{
+            width: 33%;
+        }
+        .Contactanos{
+            width: 33%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <%--BARRA MENU--%>
+        <div class="head-usuario">
+            <asp:HyperLink ID="hlIniciarSesion" runat="server" NavigateUrl="~/Forms/IniciarSesion.aspx">Iniciar Sesión</asp:HyperLink>
+&nbsp; |&nbsp;<asp:LinkButton ID="lbRegistrarse" runat="server" OnClick="lbRegistrarse_Click" PostBackUrl="~/Forms/Registrarse.aspx">Registrarse</asp:LinkButton>
+&nbsp;<div"><table class="nav-bar">
+                    <tr>
+                        <td class="logo">
+                <asp:HyperLink ID="HyperLink3" runat="server">[LOGO] Todo Accesorios</asp:HyperLink>
+                        </td>
+                        <td class="categorias">
+                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Forms/Inicio.aspx">Inicio</asp:HyperLink>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Forms/Carrito.aspx">Carrito</asp:HyperLink>
+                        </td>
+                        <td class="busqueda">
+                            <asp:TextBox ID="TextBox1" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+                            <asp:Button ID="Button1" runat="server" BorderStyle="Solid" BorderWidth="1px" Text="Buscar" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <div>
+                <table class="tabla">
+                    <tr>
+                        <td class="Navegacion">
+                            <h4>Navegación</h4>
+	                        <ul>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink7" runat="server">Preguntas Frecuentes</asp:HyperLink>
+	                            </li>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink8" runat="server">Productos</asp:HyperLink>
+	                            </li>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink9" runat="server">Personalizados</asp:HyperLink>
+	                            </li>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink10" runat="server">Nosotros</asp:HyperLink>
+	                            </li>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink11" runat="server">Envios</asp:HyperLink>
+	                            </li>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink12" runat="server">Envios Internacionales</asp:HyperLink>
+	                            </li>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink13" runat="server">Contacto</asp:HyperLink>
+	                            </li>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink14" runat="server">VIP</asp:HyperLink>
+	                            </li>
+				            </ul>
+                        </td>
+                        <td class="Pago">
+                            <h4>Medios de pago</h4>
+                            <ul>
+	                            <li>
+                                    <asp:HyperLink ID="HyperLink15" runat="server">Efectivo</asp:HyperLink>
+	                            </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink16" runat="server">Tarjeta</asp:HyperLink>
+	                            </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink17" runat="server">Transferencia</asp:HyperLink>
+	                            </li>
+                            </ul>
+                        </td>
+                        <td class="Contactanos">
+                            <h4 class="footer-title">Contactanos</h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <asp:Label ID="Label2" runat="server" Text="Creado por: "></asp:Label>
+            </div>						
+        </div>
+    </form>
+</body>
+</html>

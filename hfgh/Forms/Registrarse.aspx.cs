@@ -1,0 +1,174 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Entidades;
+using Negocio;
+using System.Drawing;
+//using System.Data.SqlClient;
+
+
+namespace Vista.Forms
+{
+    public partial class Registrarse : System.Web.UI.Page
+    {
+        NegocioUsuario NegUser = new NegocioUsuario();
+        NegocioProvincia Prov = new NegocioProvincia();
+        NegocioLocalidades Loc = new NegocioLocalidades();
+        //SqlDataReader dr;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
+            if (IsPostBack == false)
+            {
+<<<<<<< HEAD
+                CargarddlProvincia();
+
+                //INICIO DDL LOCALIDAD
+                ddlLocalidad.Items.Insert(0, new ListItem { Value = "-1", Text = "--Seleccione--" });
+=======
+                ddlProvincia.DataSource = Prov.cargarDDL();
+                ddlProvincia.DataTextField = "Nombre_Prov";
+                ddlProvincia.DataValueField = "Id_Prov";
+                ddlProvincia.DataBind();
+
+                ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
+                ddlLocalidad.DataTextField = "Nombre_Loc";
+                ddlLocalidad.DataValueField = "Id_Loc";
+                ddlLocalidad.DataBind();
+
+                ////DDL PROVINCIA
+                //dr = Prov.cargarDDL();
+                //while (dr.Read()) ddlProvincia.Items.Add(new ListItem(dr["Nombre_Prov"] + "", dr["Id_Prov"] + ""));
+                //ddlProvincia.Items.Insert(0, new ListItem { Value = "-1", Text = "*Seleccionar provincia*" });
+
+                //////DDL LOCALIDAD
+                //ddlLocalidad.Items.Insert(0, new ListItem { Value = "-1", Text = "*Antes seleccione una provincia*" });
+>>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
+            }
+        }
+
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+<<<<<<< HEAD
+            CargarddlLocalidad();
+=======
+            ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
+            ddlLocalidad.DataTextField = "Nombre_Loc";
+            ddlLocalidad.DataValueField = "Id_Loc";
+            ddlLocalidad.DataBind();
+
+            //ddlLocalidad.Items.Clear();
+            //dr = Loc.cargarDDL(ddlProvincia.SelectedValue);
+            //while (dr.Read()) ddlLocalidad.Items.Add(new ListItem(dr["Nombre_Loc"] + "", dr["Id_Loc"] + ""));
+
+>>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
+        }
+
+
+        protected void btnCrearCuenta_Click(object sender, EventArgs e)
+        {
+            Usuario User = new Usuario();
+
+            if (NegUser.ExisteNombreUsuario(txtNombreUSER.Text) == true)
+            {
+                lblMensaje.Text = "Error al Crear la Cuenta, Nombre de Usuario NO Disponible";
+                lblMensaje.ForeColor = Color.Red;
+                LimpiarCampos();
+            }
+            else
+            {
+                if (NegUser.ExisteEmail(txtMail.Text) == true)
+                {
+                    lblMensaje.Text = "Error al Crear la Cuenta, Email NO Disponible";
+                    lblMensaje.ForeColor = Color.Red;
+                    LimpiarCampos();
+                }
+                else
+                {
+                    User.Nombre_Us = txtNombre.Text;
+                    User.Apellido_Us = txtApellido.Text;
+                    User.DNI_Us = txtDNI.Text;
+                    User.FechaNac_Us = Convert.ToDateTime(txtFechaNac.Text);
+                    User.Telefono_Us = txtTelefono.Text;
+
+                    User.Email_Us = txtMail.Text;
+                    User.Usuario_Us = txtNombreUSER.Text;
+                    User.Contraseña_Us = txtContraseña.Text;
+                    User.Domicilio_Us = txtDomicilio.Text;
+                    User.IdProv_Us = ddlProvincia.SelectedValue;
+                    User.IdLoc_Us = ddlLocalidad.SelectedValue;
+
+
+                    if (NegUser.agregarUs(User) == true)
+                    {
+                        lblMensaje.Text = "Cuenta Creada Con Exito";
+                        lblMensaje.ForeColor = Color.DarkGreen;
+                    }
+                    else
+                    {
+                        lblMensaje.Text = "Error al Crear la Cuenta, Ya existe un Usuario con el DNI ingresado";
+                        lblMensaje.ForeColor = Color.Red;
+                    }
+                    LimpiarCampos();
+
+                }
+            }
+
+        }
+
+        protected void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            lblMensaje.Text = "";
+        }
+
+        public void LimpiarCampos()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDNI.Text = "";
+            txtFechaNac.Text = "";
+            txtTelefono.Text = "";
+            txtMail.Text = "";
+            txtNombreUSER.Text = "";
+            txtContraseña.Text = "";
+            txtRepetirContraseña.Text = "";
+            txtDomicilio.Text = "";
+<<<<<<< HEAD
+            CargarddlProvincia();
+            CargarddlLocalidad();
+=======
+            ddlProvincia.SelectedValue = null;
+            //ddlLocalidad.SelectedValue = null;
+            ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
+            ddlLocalidad.DataTextField = "Nombre_Loc";
+            ddlLocalidad.DataValueField = "Id_Loc";
+            ddlLocalidad.DataBind();
+>>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
+        }
+
+
+
+        public void CargarddlProvincia()
+        {
+            ddlProvincia.DataSource = Prov.cargarDDL();
+            ddlProvincia.DataTextField = "Nombre_Prov";
+            ddlProvincia.DataValueField = "Id_Prov";
+            ddlProvincia.DataBind();
+            ddlProvincia.Items.Insert(0, new ListItem { Value = "-1", Text = "--Seleccionar Provincia--" });
+        }
+
+        public void CargarddlLocalidad()
+        {
+            ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
+            ddlLocalidad.DataTextField = "Nombre_Loc";
+            ddlLocalidad.DataValueField = "Id_Loc";
+            ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0, new ListItem { Value = "-1", Text = "--Seleccione--" });
+        }
+    }
+}
