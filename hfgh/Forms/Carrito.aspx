@@ -19,6 +19,7 @@
         .auto-style7 {
             width: 561px;
             text-align: center;
+            height: 146px;
         }
         .auto-style8 {
             text-align: right;
@@ -55,19 +56,27 @@
             margin-right: 0px;
         }
 
+        .auto-style19 {
+            width: 651px;
+            height: 146px;
+        }
+        .auto-style20 {
+            height: 146px;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <a><span><strong>CARRITO</strong></span></a><table class="auto-style2">
             <tr>
-                <td class="auto-style4">&nbsp;</td>
+                <td class="auto-style19"></td>
                 <td class="auto-style7">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:GridView ID="grdCarrito" runat="server" CssClass="auto-style17" Width="243px">
                     </asp:GridView>
                     <asp:Label ID="lblNoProductos" runat="server"></asp:Label>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style20"></td>
             </tr>
             <tr>
                 <td class="auto-style4">&nbsp;</td>
