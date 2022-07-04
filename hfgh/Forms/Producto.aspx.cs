@@ -12,6 +12,7 @@ namespace Vista.Forms
 {
     public partial class Producto : System.Web.UI.Page
     {
+        NegocioArticulo negArt = new NegocioArticulo();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,8 +20,13 @@ namespace Vista.Forms
             NegocioArticulo neg = new NegocioArticulo();
             lvProducto.DataSource = neg.getP(id);
             lvProducto.DataBind();
-            DataTable s = neg.getConsultaDescripcion(id);
-            lblDescripcion.Text = s.Rows[0][0].ToString();
+            DataTable tabla = neg.getConsultaDescripcion(id);
+            lblDescripcion.Text = tabla.Rows[0][0].ToString();
+            int cant = negArt.getCantidad(id);
+            for (int i = 1; i<=cant; i++)
+            {
+                ddlCantidad.Items.Insert(i-1, new ListItem {Value=i.ToString(), Text=i.ToString() });
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

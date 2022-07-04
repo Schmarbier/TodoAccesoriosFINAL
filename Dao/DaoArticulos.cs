@@ -68,6 +68,11 @@ namespace Dao
             DataTable tabla = ad.ObtenerTabla("Articulos", "Select Id_Art, Nombre_Art, UrlImagen_Art,PrecioUnitario_Art FROM Articulos ORDER BY " + orden + "");
             return tabla;
         }
+        public DataTable getCantidad(String id)
+        {
+            DataTable tabla = ad.ObtenerTabla("Articulos", "SELECT Stock_Art FROM Articulos WHERE Id_Art = '" + id + "' ");
+            return tabla;
+        }
 
         public bool ExisteArticulo(Articulo art)
         {
