@@ -115,11 +115,8 @@
                 <td class="auto-style9">
                     <asp:DropDownList ID="ddlLocalidad" runat="server" Height="23px" Width="257px">
                     </asp:DropDownList>
-<<<<<<< HEAD
                     <asp:RequiredFieldValidator ID="RVF_Localidad" runat="server" ControlToValidate="ddlLocalidad" ForeColor="Red" InitialValue="-1">Debe seleccionar una Localidad</asp:RequiredFieldValidator>
-=======
-                    <asp:RequiredFieldValidator ID="RVF_Localidad" runat="server" ControlToValidate="ddlLocalidad" ForeColor="Red" InitialValue="----">Debe seleccionar una Localidad</asp:RequiredFieldValidator>
->>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
+
                 </td>
             </tr>
             <tr>

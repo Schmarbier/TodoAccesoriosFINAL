@@ -25,12 +25,12 @@ namespace Vista.Forms
 
             if (IsPostBack == false)
             {
-<<<<<<< HEAD
+
                 CargarddlProvincia();
 
                 //INICIO DDL LOCALIDAD
                 ddlLocalidad.Items.Insert(0, new ListItem { Value = "-1", Text = "--Seleccione--" });
-=======
+
                 ddlProvincia.DataSource = Prov.cargarDDL();
                 ddlProvincia.DataTextField = "Nombre_Prov";
                 ddlProvincia.DataValueField = "Id_Prov";
@@ -48,15 +48,15 @@ namespace Vista.Forms
 
                 //////DDL LOCALIDAD
                 //ddlLocalidad.Items.Insert(0, new ListItem { Value = "-1", Text = "*Antes seleccione una provincia*" });
->>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
+
             }
         }
 
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             CargarddlLocalidad();
-=======
+
             ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
             ddlLocalidad.DataTextField = "Nombre_Loc";
             ddlLocalidad.DataValueField = "Id_Loc";
@@ -66,7 +66,6 @@ namespace Vista.Forms
             //dr = Loc.cargarDDL(ddlProvincia.SelectedValue);
             //while (dr.Read()) ddlLocalidad.Items.Add(new ListItem(dr["Nombre_Loc"] + "", dr["Id_Loc"] + ""));
 
->>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
         }
 
 
@@ -138,17 +137,17 @@ namespace Vista.Forms
             txtContraseña.Text = "";
             txtRepetirContraseña.Text = "";
             txtDomicilio.Text = "";
-<<<<<<< HEAD
+
             CargarddlProvincia();
             CargarddlLocalidad();
-=======
+
             ddlProvincia.SelectedValue = null;
             //ddlLocalidad.SelectedValue = null;
             ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
             ddlLocalidad.DataTextField = "Nombre_Loc";
             ddlLocalidad.DataValueField = "Id_Loc";
             ddlLocalidad.DataBind();
->>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
+
         }
 
 

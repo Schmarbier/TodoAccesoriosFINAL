@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs"Inherits="Vista.Forms.Inicio" %>
+﻿<%@ Page Title="" Language="C#" UnobtrusiveValidationMode="None" MasterPageFile="~/Forms/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs"Inherits="Vista.Forms.Inicio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
@@ -6,6 +6,7 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
     <table class="nav-bar">
     <tr>
