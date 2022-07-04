@@ -50,11 +50,8 @@ namespace Negocio
 
         public bool eliminarUs(string DNI)
         {
-<<<<<<< HEAD
+
            us.DNI_Us = DNI;
-=======
-            us.DNI_Us = DNI;
->>>>>>> b9a0828c20b0f29be7843a1407a37b65f8e034dc
             int op = dao.EliminarUsuario(us);
             if (op == 1)
                 return true;
