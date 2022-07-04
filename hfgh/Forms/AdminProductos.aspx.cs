@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -15,6 +16,7 @@ namespace Vista.Forms
         {
             NegocioArticulo neg = new NegocioArticulo();
             GridView1.DataSource = neg.getTablaArt();
+
             GridView1.DataBind();
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace Vista.Forms
             {
                 art.Estado = true;
             }
-            GridView1.DataSource = neg.getFiltroArt(art);
+            GridView1.DataSource = neg.getFiltroArt(art, Convert.ToInt32(ddl_order.SelectedValue));
             GridView1.DataBind();
         }
 
@@ -58,11 +60,14 @@ namespace Vista.Forms
         {
             NegocioArticulo neg = new NegocioArticulo();
             Articulo art = new Articulo();
+
             ////Nombre
+            ///
                 if (!txt_Nombre.Text.Trim().Equals(""))
                 {
                     art.Nombre = txt_Nombre.Text;
                 }
+
             ///ID ART
                 if (!txt_idArt.Text.Trim().Equals(""))
                 {
@@ -111,10 +116,10 @@ namespace Vista.Forms
             {
 
             }
-            GridView1.DataSource = neg.getFiltroArt(art);
+            GridView1.DataSource = neg.getFiltroArt(art,Convert.ToInt32( ddl_order.SelectedValue));
                 GridView1.DataBind();
-                if (GridView1.Rows.Count < 1)
-                    CargarTabla();
+               /// if (GridView1.Rows.Count < 1)
+               ///     CargarTabla();
             }
 
         protected void btn_buscar_Click(object sender, EventArgs e)
@@ -129,7 +134,7 @@ namespace Vista.Forms
             {
                 art.Estado = true;
             }
-            GridView1.DataSource = neg.getFiltroArt(art);
+            GridView1.DataSource = neg.getFiltroArt(art, Convert.ToInt32(ddl_order.SelectedValue));
             GridView1.DataBind();
         }
 
@@ -246,6 +251,84 @@ namespace Vista.Forms
             txt_idMat.Text = null;
             txt_idArt.Text = null;
             txt_idCat.Text = null;
+            CargarTabla();
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            NegocioArticulo neg = new NegocioArticulo();
+            if (!neg.eliminarArt(((Label)GridView1.Rows[e.RowIndex].FindControl("Label13")).Text))
+            {
+                lblLeyenda.Text = "no se pudo eliminar";
+            }
+            else
+            {
+                lblLeyenda.Text = "Se eliminó con exito";
+                lblLeyenda.ForeColor = System.Drawing.Color.Green;
+            }
+            CargarTabla();
+
+        }
+
+
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            CargarTabla();
+        }
+
+
+        protected void GridView1_RowEditing1(object sender, GridViewEditEventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            CargarTabla();
+        }
+
+
+
+        protected void btn_filtro(object sender, EventArgs e)
+        {
+            PanelFiltro.Visible = true;
+            PanelAgregar.Visible = false;
+        }
+
+        protected void btn_Agregar(object sender, EventArgs e)
+        {
+            PanelAgregar.Visible = true;
+            PanelFiltro.Visible = false;
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+          
+           
+            try
+            {
+                NegocioArticulo neg = new NegocioArticulo();
+                Articulo art = new Articulo();
+                art.Id = ((Label)GridView1.Rows[e.RowIndex].FindControl("Label_IDART")).Text.ToString();
+                art.Id_material = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Edit_IdMat")).Text.ToString();
+                art.Id_categoria = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Edit_IdCat")).Text.ToString();
+                art.Nombre = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Edit_Nom")).Text.ToString();
+                art.Descripcion = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Edit_Des")).Text.ToString();
+                art.Url = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Edit_URL")).Text.ToString();
+                art.Stock = Convert.ToInt32(((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Edit_Stock")).Text);
+                art.PrecioUnitario = Convert.ToDecimal(((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Edit_PU")).Text);
+                art.FechaIngreso = Convert.ToDateTime(((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Edit_FI")).Text);
+                art.Estado = Convert.ToBoolean(((TextBox)GridView1.Rows[e.RowIndex].FindControl("CheckBox_Edit_Estado")));
+                neg.actualizarArt(art);
+            }
+            catch
+            {
+                lblLeyenda.Text = "Se produjo un error en la modificación de los Articulos";
+            }
+            GridView1.EditIndex = -1;
             CargarTabla();
         }
     }

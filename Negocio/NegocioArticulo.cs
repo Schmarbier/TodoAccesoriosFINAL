@@ -155,16 +155,30 @@ namespace Negocio
             }
             return dao.filtrarArticulo(filtro_completo);
         }
-        public DataTable getFiltroArt(Articulo art)
+        public DataTable getFiltroArt(Articulo art,int orden)
         {
-        
             Boolean anterior = false;
             String filtro_completo = "SELECT * FROM Articulos WHERE ";
+
+            ///ID 
             if (art.Id != null)
             {
                 filtro_completo += "Id_Art = '" + art.Id + "'";
                 anterior = true;
             }
+
+            ///NOMBRE
+            if (art.Nombre != null)
+                if (anterior)
+                    filtro_completo += " AND Nombre_Art = '" + art.Nombre + "'";
+                else
+                {
+                    anterior = true;
+                    filtro_completo += "Nombre_Art = '" + art.Nombre + "'";
+                }
+
+          ///CATEGORIA
+            
             if (art.Id_categoria != null)
                 if (anterior)
                     filtro_completo += " AND IdCat_Art = '" + art.Id_categoria + "'";
@@ -174,59 +188,58 @@ namespace Negocio
                     anterior = true;
                 }
             if (art.Id_material != null)
-                if (anterior)
-                    filtro_completo += " AND IdMat_Art = '" + art.Id_material + "'";
-                else
-                {
-                    filtro_completo += "IdMat_Art = '" + art.Id_material + "'";
-                    anterior = true;
-                }
-            if (art.PrecioUnitario > 0)
+                 if (anterior)
+                     filtro_completo += " AND IdMat_Art = '" + art.Id_material + "'";
+                 else
+                 {
+                     filtro_completo += "IdMat_Art = '" + art.Id_material + "'";
+                     anterior = true;
+                 }
+             if (art.PrecioUnitario > 0)
+             {
+                 String[] decimales = ( art.PrecioUnitario.ToString()).Split(',');
+                 if (anterior)
+                 {
+                     if(decimales.Length>1)
+                         filtro_completo += " AND PrecioUnitario_Art = '" + decimales[0] + "." + decimales[1] + "'";
+                     else
+                         filtro_completo += " AND PrecioUnitario_Art = '" + decimales[0] +"'";
+                 }
+
+                 else
+                 {
+                     if (decimales.Length > 1)
+                         filtro_completo += "PrecioUnitario_Art = '" + decimales[0] + "." + decimales[1] + "'";
+                     else
+                         filtro_completo += "PrecioUnitario_Art = '" + decimales[0] +"'";
+                     anterior = true;
+                 }
+             }
+             ////ESTADO
+          if (art.Estado)
             {
-                String[] decimales = ( art.PrecioUnitario.ToString()).Split(',');
                 if (anterior)
-                {
-                    if(decimales.Length>1)
-                        filtro_completo += " AND PrecioUnitario_Art = '" + decimales[0] + "." + decimales[1] + "'";
-                    else
-                        filtro_completo += " AND PrecioUnitario_Art = '" + decimales[0] +"'";
-                }
-                   
+                    filtro_completo += " AND Estado_Art = 'TRUE'";
                 else
                 {
-                    if (decimales.Length > 1)
-                        filtro_completo += "PrecioUnitario_Art = '" + decimales[0] + "." + decimales[1] + "'";
-                    else
-                        filtro_completo += "PrecioUnitario_Art = '" + decimales[0] +"'";
                     anterior = true;
+                    filtro_completo += "Estado_Art = 'TRUE'";
                 }
             }
-               
-            if (art.Estado)
-                if (anterior)
-                    filtro_completo += " AND Estado_Art = 'true' ";
-                else
-                {
-                    anterior = true;
-                    filtro_completo += "Estado_Art = 'true'";
-                }
-            else
-              if (anterior)
-                filtro_completo += " AND Estado_Art = 'false' ";
-            else
+             else
             {
-                anterior = true;
-                filtro_completo += "Estado_Art = 'false'";
-            }
-            if (art.Nombre != null)
                 if (anterior)
-                    filtro_completo += " AND Nombre_Art = '" + art.Nombre + "'";
+                    filtro_completo += " AND Estado_Art = 'FALSE'";
                 else
                 {
                     anterior = true;
-                    filtro_completo += "Nombre_Art = '" + art.Nombre + "'";
+                    filtro_completo += "Estado_Art = 'FALSE'";
                 }
-            if (art.Stock >-1)
+            }
+              
+
+
+            if (art.Stock > -1)
                 if (anterior)
                     filtro_completo += " AND Stock_Art = '" + art.Stock + "'";
                 else
@@ -234,25 +247,68 @@ namespace Negocio
                     anterior = true;
                     filtro_completo += "Stock_Art = '" + art.Stock + "'";
                 }
-            if (art.Descripcion != null)
-                if (anterior)
-                    filtro_completo += " AND Descripcion_Art = '" + art.Descripcion + "'";
-                else
-                {
-                    anterior = true;
-                    filtro_completo += "Nombre_Art = '" + art.Descripcion + "'";
-                }
-            if (art.FechaIngreso != null)
-                if (anterior)
-                    filtro_completo += " AND FechaIngreso_Art = '" + art.FechaIngreso + "'";
-                else
-                {
-                    anterior = true;
-                    filtro_completo += "FechaIngreso_Art = '" + art.FechaIngreso + "'";
-                }
+
+
+           if (art.Descripcion != null)
+                 if (anterior)
+                     filtro_completo += " AND Descripcion_Art = '" + art.Descripcion + "'";
+                 else
+                 {
+                     anterior = true;
+                     filtro_completo += "Descripcion_Art = '" + art.Descripcion + "'";
+                 }
+             if (art.FechaIngreso != null)
+                 if (anterior)
+                     filtro_completo += " AND FechaIngreso_Art = '" + art.FechaIngreso + "'";
+                 else
+                 {
+                     anterior = true;
+                     filtro_completo += "FechaIngreso_Art = '" + art.FechaIngreso + "'";
+                 }
+            ///ACA VA EL SWITCH del ORDEN
+            switch (orden)
+            {
+                case 0:
+                    filtro_completo += " ORDER BY Id_Art ASC";
+                    break;
+                case 1:
+                    filtro_completo += " ORDER BY IdCat_Art ASC";
+                    break;
+                case 2:
+                    filtro_completo += " ORDER BY IdMat_Art ASC";
+                    break;
+                case 3:
+                    filtro_completo += " ORDER BY Stock_Art ASC";
+                    break;
+                case 4:
+                    filtro_completo += " ORDER BY PrecioUnitario_Art ASC";
+                    break;
+                case 5:
+                    filtro_completo += " ORDER BY Estado_Art ASC";
+                    break;
+                case 6:
+                    filtro_completo += " ORDER BY date ASC";
+                    break;
+                case 7:
+                    filtro_completo += " ORDER BY Nombre_Art ASC";
+                    break;
+                default:
+                    filtro_completo += " ORDER BY Id_Art ASC";
+                    break;
+            }
             if (anterior)
                 return dao.filtrarArticulo(filtro_completo);
             return dao.filtrarArticulo("SELECT * FROM Articulos");
         }
+    ///Luego hacer el dao requerido
+        public DataTable getMateriales()
+        {
+            return dao.ObtenerMateriales();
+        }
+        public DataTable getCategorias()
+        {
+            return dao.ObtenerCategorias();
+        }
+    
     }
 }

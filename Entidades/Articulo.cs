@@ -22,6 +22,13 @@ namespace Entidades
         public Articulo()
         {
            FechaIngreso = null;
+            id = null;
+            id_categoria = null;
+            id_material = null;
+            nombre = null;
+            descripcion = null;
+            url = null;
+            stock = -1;
             precioUnitario = -1;
         }
         public string Id { get => id; set => id = value; }
