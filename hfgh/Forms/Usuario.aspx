@@ -97,8 +97,6 @@
                             <asp:GridView ID="grdvCompras" runat="server" AllowPaging="True" PageSize="6">
                             </asp:GridView>
                             <br />
-                            <br />
-                            <asp:HyperLink ID="HyperLink19" runat="server">Ir a la tienda &gt;</asp:HyperLink>
                             </td>
                     </tr>
                 </table>
