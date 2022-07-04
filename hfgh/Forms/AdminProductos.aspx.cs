@@ -21,8 +21,20 @@ namespace Vista.Forms
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario usr = new Usuario();
+            NegocioUsuario neg = new NegocioUsuario();
             if (!IsPostBack)
             {
+                if (Session["usuario"] == null)
+                {
+                    Response.Redirect("Inicio.aspx");
+                }
+                else
+                {
+                    usr = Session["usuario"] as Usuario;
+                    if (!neg.IsAdmin(usr))
+                        Response.Redirect("Inicio.aspx");
+                }
                 CargarTabla();
             }
                

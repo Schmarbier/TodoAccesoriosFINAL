@@ -35,7 +35,10 @@ namespace Negocio
         {
             return dao.ExisteXFiltro("Usuario_Us = '" + usuario + "'");
         }
-
+        public bool IsAdmin(Usuario usr)
+        {
+            return dao.ExisteXFiltro("Email_Us= '" + usr.Email_Us + "' AND Tipo_Us=2");
+        }
 
         public Usuario getUs(string email)
         {
