@@ -80,7 +80,7 @@ namespace Vista.Forms
         {
             NegocioUsuario neg = new NegocioUsuario();
             Usuario user = new Usuario();
-            user.DNI_Us = ((Label)GridView1.Rows[e.RowIndex].FindControl("label_DNI")).Text.ToString();
+            user.DNI_Us = ((Label)GridView1.Rows[e.RowIndex].FindControl("Label12")).Text.ToString();
             user.Usuario_Us = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Usuario")).Text.ToString();
             user.Email_Us = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Email")).Text.ToString();
             user.IdProv_Us = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox_Idprov")).Text.ToString();
@@ -102,7 +102,7 @@ namespace Vista.Forms
         protected void Button2_Click(object sender, EventArgs e)
         {
             NegocioUsuario neg = new NegocioUsuario();
-            GridView1.DataSource = neg.getFiltroUs(txtbox_filtro.Text, ddl_filtro.SelectedValue, ddlOrdenar.SelectedValue);
+            GridView1.DataSource = neg.getFiltroUs(ddlOrdenar.SelectedValue);
             GridView1.DataBind();
         }
 
@@ -118,13 +118,12 @@ namespace Vista.Forms
         }
         protected void lbRegistrarse_Click(object sender, EventArgs e)
         {
+
+        }
+
+        protected void lbCerrarSesion_Click(object sender, EventArgs e)
+        {
             Session["usuario"] = null;
-
-            hlIniciarSesion.Text = "Iniciar Sesión";
-            hlIniciarSesion.NavigateUrl = "~/Forms/IniciarSesion.aspx";
-
-            lbRegistrarse.Text = "Registrarse";
-            lbRegistrarse.PostBackUrl = "~/Forms/Registrarse.aspx";
 
             Response.Redirect("~/Forms/Inicio.aspx");
         }

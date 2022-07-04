@@ -207,11 +207,12 @@ namespace Vista.Forms
         {
             Session["usuario"] = null;
 
-            hlIniciarSesion.Text = "Iniciar Sesión";
-            hlIniciarSesion.NavigateUrl = "~/Forms/IniciarSesion.aspx";
 
-            lbRegistrarse.Text = "Registrarse";
-            lbRegistrarse.PostBackUrl = "~/Forms/Registrarse.aspx";
+        }
+
+        protected void lbCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
 
             Response.Redirect("~/Forms/Inicio.aspx");
         }

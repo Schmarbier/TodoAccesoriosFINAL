@@ -50,8 +50,7 @@ text-align: right;
     <form id="form1" runat="server" >
         <div>
             <div class="derecha">
-                 <asp:HyperLink ID="hlIniciarSesion" runat="server" NavigateUrl="~/Forms/IniciarSesion.aspx">Iniciar Sesión</asp:HyperLink>
-&nbsp; |&nbsp;<asp:LinkButton ID="lbRegistrarse" runat="server" OnClick="lbRegistrarse_Click" PostBackUrl="~/Forms/Registrarse.aspx">Registrarse</asp:LinkButton>
+&nbsp; |&nbsp;<asp:LinkButton ID="lbRegistrarse" runat="server" OnClick="lbCerrarSesion_Click" PostBackUrl="~/Forms/Inicio.aspx">Cerrar Sesion</asp:LinkButton>
 &nbsp;
             </div>
             <div>
@@ -259,6 +258,10 @@ text-align: right;
                 <asp:Label ID="Label29" runat="server" Text="Stock"></asp:Label>
                         <br />
                         <asp:TextBox ID="txt_StockAgregar" runat="server" CssClass="auto-style16"></asp:TextBox>
+                        <br />
+                    <asp:Label ID="Label_URL" runat="server" Text="URL"></asp:Label>
+                    <br />
+                    <asp:FileUpload ID="file_image" runat="server" accept="image/jpg" />
                         <br />
             <br />
                         <asp:Button ID="btn_3" runat="server" CssClass="auto-style11" Height="43px" Text="Agregar" Width="177px" OnClick="btn_agregar" />

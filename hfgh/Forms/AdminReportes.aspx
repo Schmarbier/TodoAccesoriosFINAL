@@ -28,16 +28,13 @@ text-align: right;
 <body>
     <form id="form1" runat="server">
                     <div class="derecha">
-                 <asp:HyperLink ID="hlIniciarSesion" runat="server" NavigateUrl="~/Forms/IniciarSesion.aspx">Iniciar Sesión</asp:HyperLink>
-&nbsp; |&nbsp;<asp:LinkButton ID="lbRegistrarse" runat="server" OnClick="lbRegistrarse_Click" PostBackUrl="~/Forms/Registrarse.aspx">Registrarse</asp:LinkButton>
+&nbsp; <asp:LinkButton I&nbsp; <asp:LinkButton ID="lbRegistrarse" runat="server" OnClick="lbCerrarSesion_Click" PostBackUrl="~/Forms/Inicio.aspx">Cerrar Sesion</asp:LinkButton>
 &nbsp;
             </div>
         <div>
             <asp:HyperLink ID="HyperLink1" style="margin-left: 30px" runat="server" NavigateUrl="~/Forms/AdminUsuarios.aspx">Usuarios</asp:HyperLink>
             <asp:HyperLink ID="HyperLink2" style="margin-left: 30px" runat="server" NavigateUrl="~/Forms/AdminProductos.aspx">Productos</asp:HyperLink>
             <asp:HyperLink ID="HyperLink3" style="margin-left: 30px" runat="server" NavigateUrl="~/Forms/AdminReportes.aspx">Reportes</asp:HyperLink>
-            <asp:HyperLink ID="LinkButton8" style="margin-left: 30px; float: right" runat="server">Cerrar Sesión</asp:HyperLink>
-            <asp:Label ID="Label1" runat="server" style="margin-left: 2px; float: right" Text="Bienvenido (Usuario)!"></asp:Label>
         </div>
         <div  style=" text-align: center">
         </div>

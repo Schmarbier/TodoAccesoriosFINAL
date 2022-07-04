@@ -246,7 +246,7 @@ namespace Negocio
               
 
 
-            if (art.Stock > -1)
+            if (art.Stock > 0)
                 if (anterior)
                     filtro_completo += " AND Stock_Art = '" + art.Stock + "'";
                 else
@@ -272,37 +272,37 @@ namespace Negocio
                      anterior = true;
                      filtro_completo += "FechaIngreso_Art = '" + art.FechaIngreso + "'";
                  }
-            ///ACA VA EL SWITCH del ORDEN
-            switch (orden)
-            {
-                case 0:
-                    filtro_completo += " ORDER BY Id_Art ASC";
-                    break;
-                case 1:
-                    filtro_completo += " ORDER BY IdCat_Art ASC";
-                    break;
-                case 2:
-                    filtro_completo += " ORDER BY IdMat_Art ASC";
-                    break;
-                case 3:
-                    filtro_completo += " ORDER BY Stock_Art ASC";
-                    break;
-                case 4:
-                    filtro_completo += " ORDER BY PrecioUnitario_Art ASC";
-                    break;
-                case 5:
-                    filtro_completo += " ORDER BY Estado_Art ASC";
-                    break;
-                case 6:
-                    filtro_completo += " ORDER BY date ASC";
-                    break;
-                case 7:
-                    filtro_completo += " ORDER BY Nombre_Art ASC";
-                    break;
-                default:
-                    filtro_completo += " ORDER BY Id_Art ASC";
-                    break;
-            }
+               ///ACA VA EL SWITCH del ORDEN
+               switch (orden)
+               {
+                   case 0:
+                       filtro_completo += " ORDER BY Id_Art ASC";
+                       break;
+                   case 1:
+                       filtro_completo += " ORDER BY IdCat_Art ASC";
+                       break;
+                   case 2:
+                       filtro_completo += " ORDER BY IdMat_Art ASC";
+                       break;
+                   case 3:
+                       filtro_completo += " ORDER BY Stock_Art ASC";
+                       break;
+                   case 4:
+                       filtro_completo += " ORDER BY PrecioUnitario_Art ASC";
+                       break;
+                   case 5:
+                       filtro_completo += " ORDER BY Estado_Art ASC";
+                       break;
+                   case 6:
+                       filtro_completo += " ORDER BY date ASC";
+                       break;
+                   case 7:
+                       filtro_completo += " ORDER BY Nombre_Art ASC";
+                       break;
+                   default:
+                       filtro_completo += " ORDER BY Id_Art ASC";
+                       break;
+               }
             if (anterior)
                 return dao.filtrarArticulo(filtro_completo);
             return dao.filtrarArticulo("SELECT * FROM Articulos");

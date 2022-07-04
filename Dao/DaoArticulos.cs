@@ -48,7 +48,7 @@ namespace Dao
         }
         public DataTable getTodos()
         {
-            DataTable tabla = ad.ObtenerTabla("Articulos", "Select Id_Art, Nombre_Art, UrlImagen_Art, PrecioUnitario_Art FROM Articulos ORDER BY id_Art ASC");
+            DataTable tabla = ad.ObtenerTabla("Articulos", "Select Id_Art, Nombre_Art, UrlImagen_Art, PrecioUnitario_Art FROM Articulos WHERE Estado_Art='TRUE'");
             return tabla;
         }
 
