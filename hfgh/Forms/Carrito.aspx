@@ -117,7 +117,8 @@
                 <td class="auto-style13">&nbsp;</td>
                 <td class="auto-style14">
                     &nbsp;</td>
-                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style16"> <asp:Label ID="lblError" runat="server"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style13">&nbsp;</td>

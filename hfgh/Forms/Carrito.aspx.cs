@@ -24,6 +24,7 @@ namespace Vista.Forms
                     grdCarrito.DataBind();
                     lblTotal.Text = Convert.ToString(CalcularTotal((DataTable)Session["carrito"]));
                 }
+                lblError.Text = "";
             }
         }
 
@@ -39,7 +40,8 @@ namespace Vista.Forms
 
         protected void btnComprar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DatosPago.aspx?total=" + lblTotal.Text);
+            if (Session["usuario"] == null) { lblError.Text = "Debe estar logueado para comprar!"; }
+            else Response.Redirect("DatosPago.aspx?total=" + lblTotal.Text);
         }
 
         public Decimal CalcularTotal(DataTable tabla)
