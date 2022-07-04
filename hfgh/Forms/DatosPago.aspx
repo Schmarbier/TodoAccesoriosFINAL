@@ -101,7 +101,7 @@
                 <tr>
                     <td class="auto-style16">&nbsp;</td>
                     <td class="auto-style3">Nombre&nbsp;&nbsp; </td>
-                    <td class="auto-style5">&nbsp;&nbsp;&nbsp;
+                    <td class="auto-style5">&nbsp;<br />
                         <asp:TextBox ID="txtNombre" runat="server" CssClass="auto-style4" ValidationGroup="Group1" Width="228px"></asp:TextBox>
 &nbsp;<asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ValidationGroup="Group1">*</asp:RequiredFieldValidator>
                     </td>
@@ -196,7 +196,7 @@
                     <td class="auto-style19">&nbsp;</td>
                     <td class="auto-style3">&nbsp;Localidad&nbsp;&nbsp;&nbsp; </td>
                     <td class="auto-style5">&nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="ddlLocalidad" runat="server" ValidationGroup="Group1" DataTextField="*Antes seleccione una provincia*">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" ValidationGroup="Group1">
                         </asp:DropDownList>
 &nbsp;<asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidad" ValidationGroup="Group1" InitialValue="-1">*</asp:RequiredFieldValidator>
                     </td>

@@ -84,9 +84,9 @@ namespace Negocio
                 return false;
         }
 
-        public string getNroVenta(Ventas aux)
+        public string getNroVenta()
         {
-            DataTable dt = Dao.getNroVenta(aux);
+            DataTable dt = Dao.getNroVenta();
             return dt.Rows[0][0].ToString();
         }
 
