@@ -41,17 +41,23 @@
         .auto-style22 {
             margin-left: 1px;
         }
+        .derecha {
+text-align: right;
+}
         </style>
 </head>
 <body>
     <form id="form1" runat="server" >
         <div>
+            <div class="derecha">
+                 <asp:HyperLink ID="hlIniciarSesion" runat="server" NavigateUrl="~/Forms/IniciarSesion.aspx">Iniciar Sesión</asp:HyperLink>
+&nbsp; |&nbsp;<asp:LinkButton ID="lbRegistrarse" runat="server" OnClick="lbRegistrarse_Click" PostBackUrl="~/Forms/Registrarse.aspx">Registrarse</asp:LinkButton>
+&nbsp;
+            </div>
             <div>
  <asp:HyperLink ID="HyperLink1" style="margin-left: 30px" runat="server" NavigateUrl="~/Forms/AdminUsuarios.aspx">Usuarios</asp:HyperLink>
             <asp:HyperLink ID="HyperLink2" style="margin-left: 30px" runat="server" NavigateUrl="~/Forms/AdminProductos.aspx">Productos</asp:HyperLink>
             <asp:HyperLink ID="HyperLink3" style="margin-left: 30px" runat="server" NavigateUrl="~/Forms/AdminReportes.aspx">Reportes</asp:HyperLink>
-                <asp:HyperLink ID="LinkButton8" runat="server" style="margin-left: 30px; float: right">Cerrar Sesión</asp:HyperLink>
-                <asp:Label ID="Label1" runat="server" style="margin-left: 2px; float: right" Text="Bienvenido (Usuario)!"></asp:Label>
                 <br />
             </div>
             <div style=" text-align: center;">
@@ -71,33 +77,34 @@
                         <br />
                 <asp:Label ID="Label35" runat="server" Text="Nombre del Artículo"></asp:Label>
                         <br />
-                <asp:TextBox ID="txt_Nombre" runat="server" CssClass="auto-style16"></asp:TextBox>
+                <asp:TextBox ID="txt_Nombre" runat="server" CssClass="auto-style16" MaxLength="20"></asp:TextBox>
                         <br />
                 <asp:Label ID="Label32" runat="server" Text="Descripcion del Artículo"></asp:Label>
                         <br />
-                        <asp:TextBox ID="txt_descripcion" runat="server" CssClass="auto-style16"></asp:TextBox>
+                        <asp:TextBox ID="txt_descripcion" runat="server" CssClass="auto-style16" MaxLength="100"></asp:TextBox>
                         <br />
                 <asp:Label ID="Label4" runat="server" Text="Id Artículo"></asp:Label>
                         <br />
-                        <asp:TextBox ID="txt_idArt" runat="server" CssClass="auto-style20" TextMode="Number"></asp:TextBox>
+                        <asp:TextBox ID="txt_idArt" runat="server" CssClass="auto-style20" TextMode="Number" MaxLength="8"></asp:TextBox>
                         <br />
                 <asp:Label ID="Label5" runat="server" Text="Id Categoría"></asp:Label>
                         <br />
-                        <asp:TextBox ID="txt_idCat" runat="server" CssClass="auto-style16" TextMode="Number"></asp:TextBox>
+                        <asp:TextBox ID="txt_idCat" runat="server" CssClass="auto-style16" TextMode="Number" MaxLength="8"></asp:TextBox>
                         <br />
                 <asp:Label ID="Label7" runat="server" Text="Id Material"></asp:Label>
                         <br />
-                        <asp:TextBox ID="txt_idMat" runat="server" CssClass="auto-style16" Width="164px" TextMode="Number"></asp:TextBox>
+                        <asp:TextBox ID="txt_idMat" runat="server" CssClass="auto-style16" Width="164px" TextMode="Number" MaxLength="8"></asp:TextBox>
                         <br />
                 <asp:Label ID="Label9" runat="server" Text="Precio Unitario"></asp:Label>
                         <br />
-                        <asp:TextBox ID="txt_pu" runat="server" CssClass="auto-style16"></asp:TextBox>
+                        <asp:TextBox ID="txt_pu" runat="server" CssClass="auto-style16" MaxLength="13"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_pu" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[[0-9]{0,8}([,][0-9]{0,2})?$"></asp:RegularExpressionValidator>
                         <br />
                 <asp:Label ID="Label10" runat="server" Text="Fecha de Ingreso"></asp:Label>
                         <asp:TextBox ID="txt_fechaIngreso" runat="server" CssClass="auto-style22" TextMode="Date"></asp:TextBox>
                         <br />
                 <asp:Label ID="Label8" runat="server" Text="Stock"></asp:Label>
-                        <asp:TextBox ID="txt_stock" runat="server" CssClass="auto-style6" Width="30px"></asp:TextBox>
+                        <asp:TextBox ID="txt_stock" runat="server" CssClass="auto-style6" Width="30px" TextMode="Number"></asp:TextBox>
                         <br />
                 <asp:Label ID="Label12" runat="server" Text="Estado del Articulo"></asp:Label>
                         <asp:CheckBox ID="CheckBox1" runat="server" CssClass="auto-style15" Checked="True"/>
@@ -247,6 +254,8 @@
                         <br />
                         <asp:TextBox ID="txt_puAgregar" runat="server" CssClass="auto-style16"></asp:TextBox>
                         <br />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txt_puAgregar" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[[0-9]{0,8}([,][0-9]{0,2})?$"></asp:RegularExpressionValidator>
+                    <br />
                 <asp:Label ID="Label29" runat="server" Text="Stock"></asp:Label>
                         <br />
                         <asp:TextBox ID="txt_StockAgregar" runat="server" CssClass="auto-style16"></asp:TextBox>

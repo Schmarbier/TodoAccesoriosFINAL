@@ -23,10 +23,18 @@
         .auto-style13 {
             margin-top: 0px;
         }
+                .derecha {
+text-align: right;
+}
         </style>
 </head>
 <body>
     <form id="form1" runat="server">
+                            <div class="derecha">
+                 <asp:HyperLink ID="hlIniciarSesion" runat="server" NavigateUrl="~/Forms/IniciarSesion.aspx">Iniciar Sesión</asp:HyperLink>
+&nbsp; |&nbsp;<asp:LinkButton ID="lbRegistrarse" runat="server" OnClick="lbRegistrarse_Click" PostBackUrl="~/Forms/Registrarse.aspx">Registrarse</asp:LinkButton>
+&nbsp;
+            </div>
         <div>
  <asp:HyperLink ID="HyperLink1" style="margin-left: 30px" runat="server" NavigateUrl="~/Forms/AdminUsuarios.aspx">Usuarios</asp:HyperLink>
             <asp:HyperLink ID="HyperLink2" style="margin-left: 30px" runat="server" NavigateUrl="~/Forms/AdminProductos.aspx">Productos</asp:HyperLink>

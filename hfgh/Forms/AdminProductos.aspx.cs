@@ -192,54 +192,60 @@ namespace Vista.Forms
         {
             NegocioArticulo neg = new NegocioArticulo();
             Articulo art = new Articulo();
-            ////Nombre
-            if (!txt_nombreAgregar.Text.Trim().Equals(""))
-            {
-                art.Nombre = txt_nombreAgregar.Text;
-            }
-            ///ID ART
-            if (!txt_idArtAgregar.Text.Trim().Equals(""))
-            {
-                art.Id = txt_idArtAgregar.Text;
-            }
-            ///DESCRIPCION
-            if (!txt_descripcionAgregar.Text.Trim().Equals(""))
-            {
-                art.Descripcion = txt_descripcionAgregar.Text;
-            }
-            ///ID ARTICULO
-            if (!txt_idCatAgregar.Text.Trim().Equals(""))
-            {
-                art.Id_categoria = txt_idCatAgregar.Text;
-            }
-            ///ID MATERIAL
-            if (!txt_idMatAgregar.Text.Trim().Equals(""))
-            {
-                art.Id_material = txt_idMatAgregar.Text;
-            }
-            ///FECHA INGRESO
-                art.FechaIngreso = DateTime.Now;
-            ///ESTADO
-                art.Estado = true;
-            ///PRECIO UNITARIO
-            if (!(txt_puAgregar.Text.Trim().Equals("")))
             try
             {
-                art.PrecioUnitario = Convert.ToDecimal(txt_puAgregar.Text);
-            }
-            catch
-            {
+                ////Nombre
+                if (!txt_nombreAgregar.Text.Trim().Equals(""))
+                {
+                    art.Nombre = txt_nombreAgregar.Text;
+                }
+                ///ID ART
+                if (!txt_idArtAgregar.Text.Trim().Equals(""))
+                {
+                    art.Id = txt_idArtAgregar.Text;
+                }
+                ///DESCRIPCION
+                if (!txt_descripcionAgregar.Text.Trim().Equals(""))
+                {
+                    art.Descripcion = txt_descripcionAgregar.Text;
+                }
+                ///ID ARTICULO
+                if (!txt_idCatAgregar.Text.Trim().Equals(""))
+                {
+                    art.Id_categoria = txt_idCatAgregar.Text;
+                }
+                ///ID MATERIAL
+                if (!txt_idMatAgregar.Text.Trim().Equals(""))
+                {
+                    art.Id_material = txt_idMatAgregar.Text;
+                }
+                ///FECHA INGRESO
+                art.FechaIngreso = DateTime.Now;
+                ///ESTADO
+                art.Estado = true;
+                ///PRECIO UNITARIO
+                if (!(txt_puAgregar.Text.Trim().Equals("")))
+                    try
+                    {
+                        art.PrecioUnitario = Convert.ToDecimal(txt_puAgregar.Text);
+                    }
+                    catch
+                    {
 
+                    }
+                ///URL
+                art.Url = "por ahora nada";
+                if (!neg.agregarArt(art))
+                    lbl_leyenda.Text = "El articulo no se pudo Agregar, revise los campos e intente nuevamente";
+                else
+                {
+                    lbl_leyenda.Text = "El articulo  se pudo Agregar exitosamente";
+                }
             }
-            ///URL
-           art.Url = "por ahora nada";
-            if (!neg.agregarArt(art))
-                lbl_leyenda.Text = "El articulo no se pudo Agregar, revise los campos e intente nuevamente";
-            else
+            catch 
             {
-                lbl_leyenda.Text = "El articulo  se pudo Agregar exitosamente";
+                lbl_leyenda.Text = "El articulo no se pudo Agregar, revise los campos e intente nuevamente";
             }
-            CargarTabla();
         }
 
         protected void btn_limpiarFiltro(object sender, EventArgs e)
@@ -330,6 +336,18 @@ namespace Vista.Forms
             }
             GridView1.EditIndex = -1;
             CargarTabla();
+        }
+        protected void lbRegistrarse_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+
+            hlIniciarSesion.Text = "Iniciar Sesión";
+            hlIniciarSesion.NavigateUrl = "~/Forms/IniciarSesion.aspx";
+
+            lbRegistrarse.Text = "Registrarse";
+            lbRegistrarse.PostBackUrl = "~/Forms/Registrarse.aspx";
+
+            Response.Redirect("~/Forms/Inicio.aspx");
         }
     }
     }
