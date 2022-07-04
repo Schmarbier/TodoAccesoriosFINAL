@@ -191,5 +191,17 @@ namespace Vista.Forms
 
             }
         }
+        protected void lbRegistrarse_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+
+            hlIniciarSesion.Text = "Iniciar Sesión";
+            hlIniciarSesion.NavigateUrl = "~/Forms/IniciarSesion.aspx";
+
+            lbRegistrarse.Text = "Registrarse";
+            lbRegistrarse.PostBackUrl = "~/Forms/Registrarse.aspx";
+
+            Response.Redirect("~/Forms/Inicio.aspx");
+        }
     }
 }

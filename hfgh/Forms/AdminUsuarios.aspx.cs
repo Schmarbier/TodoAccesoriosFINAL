@@ -101,5 +101,17 @@ namespace Vista.Forms
             GridView1.PageIndex = e.NewPageIndex;
             CargarTabla();
         }
+        protected void lbRegistrarse_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+
+            hlIniciarSesion.Text = "Iniciar Sesión";
+            hlIniciarSesion.NavigateUrl = "~/Forms/IniciarSesion.aspx";
+
+            lbRegistrarse.Text = "Registrarse";
+            lbRegistrarse.PostBackUrl = "~/Forms/Registrarse.aspx";
+
+            Response.Redirect("~/Forms/Inicio.aspx");
+        }
     }
 }
