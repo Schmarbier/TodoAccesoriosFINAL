@@ -159,7 +159,13 @@ namespace Dao
             return ad.EjecutarProcAlmacenado(cmd, "SPActualizarVenta");
         }
 
-
+        public DataTable getNroVenta(Ventas aux)
+        {
+            return ad.ObtenerTabla("ventas", "SELECT Ventas.Nro_Vent FROM VENTAS " +
+                    "WHERE Ventas.DniUsuario_Vent = '" + aux.getDniUsuario() + "' AND " +
+                    "Ventas.Total_Vent = " + aux.getTotal() + " AND " +
+                    "ventas.Fecha_Vent = '" + aux.getFecha() + "'");
+        }
 
         public DataTable FiltrarVentas(string filtro)
         {

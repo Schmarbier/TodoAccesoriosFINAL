@@ -44,7 +44,6 @@ namespace Vista.Forms
         {
             if (!IsPostBack)
             {
-                //crearSession();
                 cargarDatos();
                 cargarVentas();
             }

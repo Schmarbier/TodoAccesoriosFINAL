@@ -116,10 +116,12 @@
     <div></div>
     <br />
     <asp:Label ID="Label3" runat="server" Text="NOTAS DEL PEDIDO"></asp:Label>
+    &nbsp;&nbsp;&nbsp;
+    <asp:Label ID="lblResultado" runat="server"></asp:Label>
     <br />
     <asp:TextBox ID="TextBox4" runat="server" Height="96px" TextMode="MultiLine" Width="690px"></asp:TextBox>
  
     <br />
-    <asp:Button ID="Button3" runat="server" Height="49px" Text="Realizar Pedido" Width="690px" />
+    <asp:Button ID="btnRealizar" runat="server" Height="49px" Text="Realizar Pedido" Width="690px" OnClick="btnRealizar_Click" />
  
 </asp:Content>
