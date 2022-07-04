@@ -31,10 +31,6 @@
             height: 29px;
             text-align: right;
         }
-        .auto-style11 {
-            height: 29px;
-            text-align: center;
-        }
         .auto-style13 {
             width: 651px;
             height: 27px;
@@ -52,6 +48,13 @@
             text-align: right;
         }
 
+        .auto-style17 {
+            margin-left: 162px;
+        }
+        .auto-style18 {
+            margin-right: 0px;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -59,8 +62,10 @@
             <tr>
                 <td class="auto-style4">&nbsp;</td>
                 <td class="auto-style7">
-                    <asp:GridView ID="grdCarrito" runat="server">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:GridView ID="grdCarrito" runat="server" CssClass="auto-style17" Width="243px">
                     </asp:GridView>
+                    <asp:Label ID="lblNoProductos" runat="server"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -75,15 +80,14 @@
                 <td class="auto-style6">
                 </td>
                 <td class="auto-style10">
-                    <asp:Button ID="btnVaciar" runat="server" Text="Vaciar carrito" />
+                    <asp:Button ID="btnVaciar" runat="server" Text="Vaciar carrito" CssClass="auto-style18" OnClick="btnVaciar_Click1" />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style9">&nbsp;</td>
                 <td class="auto-style6">
                     &nbsp;</td>
-                <td class="auto-style11">&nbsp; TOTAL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblTotal" runat="server"></asp:Label>
+                <td class="auto-style10">&nbsp; TOTAL: <asp:Label ID="lblTotal" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
