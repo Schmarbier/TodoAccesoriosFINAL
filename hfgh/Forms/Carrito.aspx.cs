@@ -12,17 +12,29 @@ namespace Vista.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["carrito"] != null)
+            if (!IsPostBack)
             {
-                grdCarrito.DataSource = (DataTable)Session["carrito"];
-                grdCarrito.DataBind();
-                lblTotal.Text= Convert.ToString(CalcularTotal((DataTable)Session["carrito"]));
+                if (Session["Carrito"] == null)
+                {
+                    lblNoProductos.Text = "No hay productos seleccionados!";
+                }
+                else
+                {
+                    grdCarrito.DataSource = Session["carrito"];
+                    grdCarrito.DataBind();
+                    lblTotal.Text = Convert.ToString(CalcularTotal((DataTable)Session["carrito"]));
+                }
             }
         }
 
-        protected void BtnVaciar_Click(object sender, EventArgs e)
+
+        protected void btnVaciar_Click1(object sender, EventArgs e)
         {
             Session["carrito"] = null;
+            grdCarrito.DataSource = Session["carrito"];
+            grdCarrito.DataBind();
+            lblTotal.Text = "0";
+            lblNoProductos.Text = "No hay productos seleccionados!";
         }
 
         protected void btnComprar_Click(object sender, EventArgs e)
@@ -35,9 +47,10 @@ namespace Vista.Forms
             Decimal total=0;
             foreach (DataRow fila in tabla.Rows)
             {
-                total +=  Convert.ToDecimal(fila["Precio"]);
+                total +=  Convert.ToDecimal(fila["Total"]);
             }
             return total;
         }
+
     }
 }
