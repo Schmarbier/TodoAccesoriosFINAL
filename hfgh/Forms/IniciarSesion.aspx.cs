@@ -28,9 +28,10 @@ namespace Vista.Forms
                     if (NegUser.UserActivo(txt_Mail.Text) == true)
                     {
                       Session["usuario"] = NegUser.getUs(txt_Mail.Text);
-                      if(NegUser.IsAdmin(NegUser.getUs(txt_Mail.Text)))
+                        if (NegUser.IsAdmin(NegUser.getUs(txt_Mail.Text)))
                             Response.Redirect("AdminReportes.aspx");
                         else
+                             Session["carrito"] = null;
                              Response.Redirect("Usuario.aspx");
                     }
                     else

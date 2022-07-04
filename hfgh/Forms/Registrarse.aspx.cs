@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
 using System.Drawing;
-//using System.Data.SqlClient;
 
 
 namespace Vista.Forms
@@ -17,7 +16,6 @@ namespace Vista.Forms
         NegocioUsuario NegUser = new NegocioUsuario();
         NegocioProvincia Prov = new NegocioProvincia();
         NegocioLocalidades Loc = new NegocioLocalidades();
-        //SqlDataReader dr;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,47 +23,16 @@ namespace Vista.Forms
 
             if (IsPostBack == false)
             {
-
                 CargarddlProvincia();
 
                 //INICIO DDL LOCALIDAD
                 ddlLocalidad.Items.Insert(0, new ListItem { Value = "-1", Text = "--Seleccione--" });
-
-                ddlProvincia.DataSource = Prov.cargarDDL();
-                ddlProvincia.DataTextField = "Nombre_Prov";
-                ddlProvincia.DataValueField = "Id_Prov";
-                ddlProvincia.DataBind();
-
-                ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
-                ddlLocalidad.DataTextField = "Nombre_Loc";
-                ddlLocalidad.DataValueField = "Id_Loc";
-                ddlLocalidad.DataBind();
-
-                ////DDL PROVINCIA
-                //dr = Prov.cargarDDL();
-                //while (dr.Read()) ddlProvincia.Items.Add(new ListItem(dr["Nombre_Prov"] + "", dr["Id_Prov"] + ""));
-                //ddlProvincia.Items.Insert(0, new ListItem { Value = "-1", Text = "*Seleccionar provincia*" });
-
-                //////DDL LOCALIDAD
-                //ddlLocalidad.Items.Insert(0, new ListItem { Value = "-1", Text = "*Antes seleccione una provincia*" });
-
             }
         }
 
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             CargarddlLocalidad();
-
-            ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
-            ddlLocalidad.DataTextField = "Nombre_Loc";
-            ddlLocalidad.DataValueField = "Id_Loc";
-            ddlLocalidad.DataBind();
-
-            //ddlLocalidad.Items.Clear();
-            //dr = Loc.cargarDDL(ddlProvincia.SelectedValue);
-            //while (dr.Read()) ddlLocalidad.Items.Add(new ListItem(dr["Nombre_Loc"] + "", dr["Id_Loc"] + ""));
-
         }
 
 
@@ -137,17 +104,8 @@ namespace Vista.Forms
             txtContraseña.Text = "";
             txtRepetirContraseña.Text = "";
             txtDomicilio.Text = "";
-
             CargarddlProvincia();
             CargarddlLocalidad();
-
-            ddlProvincia.SelectedValue = null;
-            //ddlLocalidad.SelectedValue = null;
-            ddlLocalidad.DataSource = Loc.cargarDDL(ddlProvincia.SelectedValue);
-            ddlLocalidad.DataTextField = "Nombre_Loc";
-            ddlLocalidad.DataValueField = "Id_Loc";
-            ddlLocalidad.DataBind();
-
         }
 
 
