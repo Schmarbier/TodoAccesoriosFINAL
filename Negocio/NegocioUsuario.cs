@@ -86,9 +86,9 @@ namespace Negocio
                 return false;
         }
 
-        public DataTable getFiltroUs(String filtro, String cual, String ordenar)
+        public DataTable getFiltroUs( String ordenar)
         {
-          return dao.filtrarUsuario("SELECT * FROM Usuarios WHERE '" + cual + "' LIKE '" + filtro + "' % ORDER BY '" + ordenar + "'");
+          return dao.filtrarUsuario("SELECT * FROM Usuarios ORDER BY '" + ordenar + "'");
 
         }
 

@@ -246,7 +246,7 @@ namespace Vista.Forms
 
                     }
                 ///URL
-                art.Url = "por ahora nada";
+                art.Url = "~/Forms/Imagenes/Articulos/1.jpg";
                 if (!neg.agregarArt(art))
                     lbl_leyenda.Text = "El articulo no se pudo Agregar, revise los campos e intente nuevamente";
                 else
@@ -275,7 +275,7 @@ namespace Vista.Forms
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             NegocioArticulo neg = new NegocioArticulo();
-            if (!neg.eliminarArt(((Label)GridView1.Rows[e.RowIndex].FindControl("Label13")).Text))
+            if (!neg.eliminarArt(((Label)GridView1.Rows[e.RowIndex].FindControl("Label_IDART")).Text))
             {
                 lblLeyenda.Text = "no se pudo eliminar";
             }
@@ -353,12 +353,13 @@ namespace Vista.Forms
         {
             Session["usuario"] = null;
 
-            hlIniciarSesion.Text = "Iniciar Sesión";
-            hlIniciarSesion.NavigateUrl = "~/Forms/IniciarSesion.aspx";
 
-            lbRegistrarse.Text = "Registrarse";
-            lbRegistrarse.PostBackUrl = "~/Forms/Registrarse.aspx";
+            Response.Redirect("~/Forms/Inicio.aspx");
+        }
 
+        protected void lbCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
             Response.Redirect("~/Forms/Inicio.aspx");
         }
     }
