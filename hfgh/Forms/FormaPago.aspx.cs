@@ -75,7 +75,9 @@ namespace Vista.Forms
             DetalleVentas entDetalle = new DetalleVentas();
 
             /// REGISTRO LA VENTA
-            if(negVenta.AgregarVent((Ventas)Session["venta"]) == false) return false;
+             //Se setea el ID del tipo de envio.
+            ((Ventas)Session["venta"]).setIdTipoEnvio(ddlTipoEnvio.SelectedValue);
+            if (negVenta.AgregarVent((Ventas)Session["venta"]) == false) return false;
 
             /// REGISTRO EL DETALLE DE VENTA
 

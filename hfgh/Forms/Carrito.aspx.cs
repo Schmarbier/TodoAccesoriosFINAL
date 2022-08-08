@@ -65,12 +65,11 @@ namespace Vista.Forms
                 venta.setTelefono(((Usuario)Session["usuario"]).Telefono_Us);
                 venta.setDireccion(((Usuario)Session["usuario"]).Domicilio_Us);
                 venta.setDepartamento(((Usuario)Session["usuario"]).Departamento_Us);
-                venta.setCodPostal(((Usuario)Session["usuario"]).);
+                venta.setCodPostal(((Usuario)Session["usuario"]).Codpostal_Us);
                 venta.setIdProvLoc(((Usuario)Session["usuario"]).IdProv_Us);
                 venta.setFecha(DateTime.Today);
                 venta.setIdLoc(((Usuario)Session["usuario"]).IdLoc_Us);
-                if (txtBarrio.Text.Trim() != "") venta.setBarrio(txtBarrio.Text);
-                else venta.setBarrio("Sin barrio");
+                venta.setBarrio(((Usuario)Session["usuario"]).Barrio_Us);
                 venta.setTotal(Convert.ToDecimal(Request.QueryString["total"]));
 
                 Session["venta"] = venta;

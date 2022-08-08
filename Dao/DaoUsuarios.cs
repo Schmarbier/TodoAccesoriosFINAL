@@ -15,7 +15,7 @@ namespace Dao
 
         public Usuario getUsuarioXEmail(Usuario user)
         {
-            DataTable tabla = ad.ObtenerTabla("Usuarios", "Select DNI_Us,Usuario_Us, Contraseña_Us, Email_Us, Telefono_Us, Nombre_Us, Apellido_Us,IdProv_Us,IdLoc_Us, Domicilio_Us, Departamento_Us, Tipo_Us, UrlImagen_Us,FechaNac_Us,Estado FROM Usuarios WHERE Email_Us = '"+ user.Email_Us + "'" );
+            DataTable tabla = ad.ObtenerTabla("Usuarios", "Select DNI_Us,Usuario_Us, Contraseña_Us, Email_Us, Telefono_Us, Nombre_Us, Apellido_Us,IdProv_Us,IdLoc_Us, Domicilio_Us, Departamento_Us, Tipo_Us, UrlImagen_Us,FechaNac_Us,Estado, Barrio_Us, CodPostal_Us FROM Usuarios WHERE Email_Us = '"+ user.Email_Us + "'" );
                 
             user.DNI_Us = tabla.Rows[0][0].ToString();
             user.Usuario_Us = tabla.Rows[0][1].ToString();
@@ -32,13 +32,15 @@ namespace Dao
             user.UrlImagen_Us = tabla.Rows[0][12].ToString();
             user.FechaNac_Us = Convert.ToDateTime(tabla.Rows[0][13].ToString());
             user.Estado = Convert.ToBoolean(tabla.Rows[0][14].ToString());
+            user.Barrio_Us = tabla.Rows[0][15].ToString();
+            user.Codpostal_Us = Convert.ToInt32(tabla.Rows[0][16].ToString());
             return user;
         }
 
         public DataTable getTablaUsuario()
         {
 
-           DataTable tabla = ad.ObtenerTabla("Usuarios", "select DNI_Us,Usuario_Us,Email_Us,IdProv_Us,IdLoc_Us,Domicilio_Us,Departamento_Us,Contraseña_Us,Telefono_Us,Nombre_Us,Apellido_Us,UrlImagen_Us,FechaNac_Us,Tipo_Us,Estado from Usuarios");
+           DataTable tabla = ad.ObtenerTabla("Usuarios", "select DNI_Us,Usuario_Us,Email_Us,IdProv_Us,IdLoc_Us,Domicilio_Us,Departamento_Us,Contraseña_Us,Telefono_Us,Nombre_Us,Apellido_Us,UrlImagen_Us,FechaNac_Us,Tipo_Us,Estado,Barrio_Us, CodPostal_Us  from Usuarios");
 
             return tabla;
         }
@@ -78,6 +80,8 @@ namespace Dao
             parametro.Value = user.IdLoc_Us;
             parametro = cmd.Parameters.Add("@DOMICILIO", SqlDbType.VarChar);
             parametro.Value = user.Domicilio_Us;
+            parametro = cmd.Parameters.Add("@DEPARTAMENTO", SqlDbType.VarChar);
+            parametro.Value = user.Departamento_Us;
             parametro = cmd.Parameters.Add("@CONTRASEÑA", SqlDbType.VarChar);
             parametro.Value = user.Contraseña_Us;
             parametro = cmd.Parameters.Add("@TELEFONO", SqlDbType.Char);
@@ -88,6 +92,10 @@ namespace Dao
             parametro.Value = user.Apellido_Us;
             parametro = cmd.Parameters.Add("@FECHANAC", SqlDbType.Date);
             parametro.Value = user.FechaNac_Us;
+            parametro = cmd.Parameters.Add("@BARRIO", SqlDbType.VarChar);
+            parametro.Value = user.Barrio_Us;
+            parametro = cmd.Parameters.Add("@CODPOSTAL", SqlDbType.Int);
+            parametro.Value = user.Codpostal_Us;
 
             return ad.EjecutarProcAlmacenado(cmd, "SPAgregarUsuario");
         }
@@ -107,6 +115,8 @@ namespace Dao
             parametro.Value = user.IdLoc_Us;
             parametro = cmd.Parameters.Add("@DOMICILIO", SqlDbType.VarChar);
             parametro.Value = user.Domicilio_Us;
+            parametro = cmd.Parameters.Add("@DEPARTAMENTO", SqlDbType.VarChar);
+            parametro.Value = user.Departamento_Us;
             parametro = cmd.Parameters.Add("@DEPTO", SqlDbType.VarChar);
             parametro.Value = user.Departamento_Us;
             parametro = cmd.Parameters.Add("@CONTRASEÑA", SqlDbType.VarChar);
@@ -125,6 +135,10 @@ namespace Dao
             parametro.Value = user.Tipo_Us;
             parametro = cmd.Parameters.Add("@ESTADO", SqlDbType.Int);
             parametro.Value = user.Estado;
+            parametro = cmd.Parameters.Add("@BARRIO", SqlDbType.VarChar);
+            parametro.Value = user.Barrio_Us;
+            parametro = cmd.Parameters.Add("@CODPOSTAL", SqlDbType.Int);
+            parametro.Value = user.Codpostal_Us;
             return ad.EjecutarProcAlmacenado(cmd, "SPActualizarUsuario");
         }
 

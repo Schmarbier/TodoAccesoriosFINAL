@@ -61,7 +61,6 @@ namespace Vista.Forms
                     User.DNI_Us = txtDNI.Text;
                     User.FechaNac_Us = Convert.ToDateTime(txtFechaNac.Text);
                     User.Telefono_Us = txtTelefono.Text;
-
                     User.Email_Us = txtMail.Text;
                     User.Usuario_Us = txtNombreUSER.Text;
                     User.Contraseña_Us = txtContraseña.Text;
@@ -72,6 +71,7 @@ namespace Vista.Forms
                     else User.Departamento_Us = txtDepartamento.Text;
                     if (txtBarrio.Text.Trim() == "") User.Barrio_Us = "----";
                     else User.Barrio_Us = txtBarrio.Text;
+                    User.Codpostal_Us = Convert.ToInt32(txtCP.Text);
 
 
 

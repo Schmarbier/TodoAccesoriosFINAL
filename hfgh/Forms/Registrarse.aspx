@@ -173,7 +173,7 @@
             <tr>
                 <td class="auto-style4">Código postal:</td>
                 <td class="auto-style13">
-                    <asp:TextBox ID="txtCP" runat="server" Width="250px" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtCP" runat="server" Width="250px"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="reCP" runat="server" ControlToValidate="txtCP" ValidationExpression="^\d{4}$" ForeColor="Red">Código postal inválido!</asp:RegularExpressionValidator>
                     </td>
             </tr>
