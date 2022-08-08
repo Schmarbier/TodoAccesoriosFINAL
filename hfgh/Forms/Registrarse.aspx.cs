@@ -68,6 +68,11 @@ namespace Vista.Forms
                     User.Domicilio_Us = txtDomicilio.Text;
                     User.IdProv_Us = ddlProvincia.SelectedValue;
                     User.IdLoc_Us = ddlLocalidad.SelectedValue;
+                    if (txtDepartamento.Text.Trim() == "") User.Departamento_Us = "No vive en departamento";
+                    else User.Departamento_Us = txtDepartamento.Text;
+                    if (txtBarrio.Text.Trim() == "") User.Barrio_Us = "----";
+                    else User.Barrio_Us = txtBarrio.Text;
+
 
 
                     if (NegUser.agregarUs(User) == true)

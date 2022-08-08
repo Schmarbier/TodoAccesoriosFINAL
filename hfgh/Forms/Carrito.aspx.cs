@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using Entidades;
 
 namespace Vista.Forms
 {
     public partial class Carrito : System.Web.UI.Page
     {
+        Ventas venta= new Ventas();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -38,11 +40,6 @@ namespace Vista.Forms
             lblNoProductos.Text = "No hay productos seleccionados!";
         }
 
-        protected void btnComprar_Click(object sender, EventArgs e)
-        {
-            if (Session["usuario"] == null) { lblError.Text = "Debe estar logueado para comprar!"; }
-            else Response.Redirect("DatosPago.aspx?total=" + lblTotal.Text);
-        }
 
         public Decimal CalcularTotal(DataTable tabla)
         {
@@ -52,6 +49,36 @@ namespace Vista.Forms
                 total +=  Convert.ToDecimal(fila["Total"]);
             }
             return total;
+        }
+        protected void btnComprar_Click(object sender, EventArgs e)
+        {
+            if (Session["usuario"] == null) { lblError.Text = "Debe estar logueado para comprar!"; }
+
+            else
+            {
+                venta.setUsuario(((Usuario)Session["usuario"]).Usuario_Us);
+                venta.setEmailUsuario(((Usuario)Session["usuario"]).Email_Us);
+                //venta.setIdTipoEnvio(ddlTipoEnvio.SelectedValue);
+                venta.setNombre(((Usuario)Session["usuario"]).Nombre_Us);
+                venta.setApellido(((Usuario)Session["usuario"]).Apellido_Us);
+                venta.setDniUsuario(((Usuario)Session["usuario"]).DNI_Us);
+                venta.setTelefono(((Usuario)Session["usuario"]).Telefono_Us);
+                venta.setDireccion(((Usuario)Session["usuario"]).Domicilio_Us);
+                venta.setDepartamento(((Usuario)Session["usuario"]).Departamento_Us);
+                venta.setCodPostal(((Usuario)Session["usuario"]).);
+                venta.setIdProvLoc(((Usuario)Session["usuario"]).IdProv_Us);
+                venta.setFecha(DateTime.Today);
+                venta.setIdLoc(((Usuario)Session["usuario"]).IdLoc_Us);
+                if (txtBarrio.Text.Trim() != "") venta.setBarrio(txtBarrio.Text);
+                else venta.setBarrio("Sin barrio");
+                venta.setTotal(Convert.ToDecimal(Request.QueryString["total"]));
+
+                Session["venta"] = venta;
+
+
+                Response.Redirect("FormaPago.aspx?total=" + lblTotal.Text);
+
+            }
         }
 
     }

@@ -24,6 +24,24 @@ namespace Vista.Forms
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
+        /// Control ddlTipoEnvio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoEnvio;
+
+        /// <summary>
+        /// Control rfvTipoEnvio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTipoEnvio;
+
+        /// <summary>
         /// Control btn_tc.
         /// </summary>
         /// <remarks>

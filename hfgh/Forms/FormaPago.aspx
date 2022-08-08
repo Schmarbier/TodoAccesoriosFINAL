@@ -11,6 +11,12 @@
         <asp:Label ID="Label7" runat="server" Text="FORMA DE PAGO" Font-Bold="True" Font-Size="Large"></asp:Label>
         <br />
         <br />
+        <br />
+                <asp:DropDownList ID="ddlTipoEnvio" runat="server" ValidationGroup="Group1">
+                </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvTipoEnvio" runat="server" ControlToValidate="ddlTipoEnvio" ValidationGroup="Group1">*</asp:RequiredFieldValidator>
+        <br />
+        <br />
         <asp:Button ID="btn_tc" runat="server" Text="Tarjeta de crédito y débito" OnClick="btn_tarjeta_click" /></div>
             <div>
                 <asp:Panel ID="Panel1" runat="server" Visible="False">

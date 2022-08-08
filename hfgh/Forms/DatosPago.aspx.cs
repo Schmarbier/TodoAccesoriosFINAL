@@ -48,11 +48,7 @@ namespace Vista.Forms
 
         protected void btnContinuar_Click(object sender, EventArgs e)
         {
-            if(Session["usuario"] == null)
-            {
-                venta.setUsuario("no ingresado");
-            }
-
+         
             venta.setUsuario(((Usuario)Session["usuario"]).Usuario_Us);
             venta.setEmailUsuario(txtEmail.Text);
             venta.setIdTipoEnvio(ddlTipoEnvio.SelectedValue);

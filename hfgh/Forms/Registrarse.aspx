@@ -43,11 +43,19 @@
             text-decoration: underline;
             font-size: x-large;
         }
+        .auto-style13 {
+            text-align: left;
+        }
+        .auto-style14 {
+            width: 692px;
+            text-align: left;
+            height: 23px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="auto-style2">
-            <table class="nav-bar">
+            &nbsp;<table class="nav-bar">
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
@@ -103,6 +111,18 @@
                 </td>
             </tr>
             <tr>
+                <td class="auto-style4">Departamento:</td>
+                <td class="auto-style9">
+                    <asp:TextBox ID="txtDepartamento" runat="server" Width="250px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style7">Barrio:</td>
+                <td class="auto-style14">
+                    <asp:TextBox ID="txtBarrio" runat="server" Width="250px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
                 <td class="auto-style4">Provincia </td>
                 <td class="auto-style9">
                     <asp:DropDownList ID="ddlProvincia" runat="server" Width="257px" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" Height="23px">
@@ -151,12 +171,14 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style4">&nbsp;</td>
-                <td class="auto-style2">
-                    &nbsp;</td>
+                <td class="auto-style4">Código postal:</td>
+                <td class="auto-style13">
+                    <asp:TextBox ID="txtCP" runat="server" Width="250px" TextMode="Password"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="reCP" runat="server" ControlToValidate="txtCP" ValidationExpression="^\d{4}$" ForeColor="Red">Código postal inválido!</asp:RegularExpressionValidator>
+                    </td>
             </tr>
             <tr>
-                <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style7"></td>
                 <td class="auto-style8">
                     <asp:Button ID="btnCrearCuenta" runat="server" Height="30px" Text="Crear Cuenta" Width="150px" OnClick="btnCrearCuenta_Click" />
                 </td>

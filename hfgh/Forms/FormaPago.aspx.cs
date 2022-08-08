@@ -7,14 +7,18 @@ using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Vista.Forms
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        SqlDataReader dr;
+        NegocioTipoEnvio TipoEnvio = new NegocioTipoEnvio();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            dr = TipoEnvio.cargarDDL();
+            while (dr.Read()) ddlTipoEnvio.Items.Add(new ListItem(dr["Descripcion_TEnvio"] + "", dr["Id_TEnvio"] + ""));
         }
 
 
