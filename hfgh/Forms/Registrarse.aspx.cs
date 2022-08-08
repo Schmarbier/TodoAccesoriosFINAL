@@ -42,7 +42,7 @@ namespace Vista.Forms
 
             if (NegUser.ExisteNombreUsuario(txtNombreUSER.Text) == true)
             {
-                lblMensaje.Text = "Error al Crear la Cuenta, Nombre de Usuario NO Disponible";
+                lblMensaje.Text = "Error al crear la cuenta, nombre de usuario NO disponible";
                 lblMensaje.ForeColor = Color.Red;
                 LimpiarCampos();
             }
@@ -50,7 +50,7 @@ namespace Vista.Forms
             {
                 if (NegUser.ExisteEmail(txtMail.Text) == true)
                 {
-                    lblMensaje.Text = "Error al Crear la Cuenta, Email NO Disponible";
+                    lblMensaje.Text = "Error al crear la cuenta, Email NO Disponible";
                     lblMensaje.ForeColor = Color.Red;
                     LimpiarCampos();
                 }
@@ -77,12 +77,12 @@ namespace Vista.Forms
 
                     if (NegUser.agregarUs(User) == true)
                     {
-                        lblMensaje.Text = "Cuenta Creada Con Exito";
+                        lblMensaje.Text = "Cuenta creada con éxito!";
                         lblMensaje.ForeColor = Color.DarkGreen;
                     }
                     else
                     {
-                        lblMensaje.Text = "Error al Crear la Cuenta, Ya existe un Usuario con el DNI ingresado";
+                        lblMensaje.Text = "Error al crear la cuenta, ya existe un usuario con el DNI ingresado";
                         lblMensaje.ForeColor = Color.Red;
                     }
                     LimpiarCampos();

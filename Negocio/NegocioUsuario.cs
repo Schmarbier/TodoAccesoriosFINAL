@@ -64,17 +64,15 @@ namespace Negocio
 
         public bool agregarUs(Usuario user)
         {
-            int cantFilas = 0;
-           
+
             if (dao.ExisteUsuario(user) == false)
             {
-                cantFilas = dao.AgregarUsuario(user);
-            }
-
-            if (cantFilas == 1)
+                dao.AgregarUsuario(user);
                 return true;
-            else
-                return false;
+            }
+            else return false;
+
+            
         }
 
         public bool actualizarUs(Usuario user)

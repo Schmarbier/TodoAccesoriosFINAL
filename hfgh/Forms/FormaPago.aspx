@@ -27,21 +27,21 @@
                     <br />
                     <br />
                 <asp:Label ID="lbl_ntc" runat="server" Text="Numero de Tarjeta"></asp:Label>
-                    <asp:TextBox ID="txt_nt" runat="server" style="margin-left: 80px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_nt">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_nt" ValidationExpression="^\d{12}$">Número de tarjeta inválido</asp:RegularExpressionValidator>
+                    <asp:TextBox ID="txt_nt" runat="server" style="margin-left: 80px" ValidationGroup="Group1"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_nt" ValidationGroup="Group1">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_nt" ValidationExpression="^\d{12}$" ValidationGroup="Group1">Número de tarjeta inválido</asp:RegularExpressionValidator>
                     <br />
                     <asp:Label ID="lbl_ttc" runat="server" Text="Titular de Tarjeta"></asp:Label>
-                    <asp:TextBox ID="txtTitularTarjeta" runat="server" style="margin-left: 80px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTitularTarjeta">*</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtTitularTarjeta" runat="server" style="margin-left: 80px" ValidationGroup="Group1"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTitularTarjeta" ValidationGroup="Group1">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lbl_venc" runat="server" Text="Vencimiento(MM/AA)"></asp:Label>
-                    <asp:TextBox ID="txtVencimiento" runat="server" style="margin-left: 80px" Width="57px" TextMode="DateTime"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtVencimiento">*</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtVencimiento" runat="server" style="margin-left: 80px" Width="57px" TextMode="DateTime" ValidationGroup="Group1"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtVencimiento" ValidationGroup="Group1">*</asp:RequiredFieldValidator>
                     <asp:Label ID="lbl_venc0" runat="server" Text="Código Seguridad" style="margin-left: 80px"></asp:Label>
-                    <asp:TextBox ID="txtCodSeguridad" runat="server" style="margin-left: 30px" Width="57px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCodSeguridad">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCodSeguridad" ValidationExpression="^\d{3}$">Código de seguridad inválido</asp:RegularExpressionValidator>
+                    <asp:TextBox ID="txtCodSeguridad" runat="server" style="margin-left: 30px" Width="57px" ValidationGroup="Group1"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCodSeguridad" ValidationGroup="Group1">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCodSeguridad" ValidationExpression="^\d{3}$" ValidationGroup="Group1">Código de seguridad inválido</asp:RegularExpressionValidator>
                     <br />
                     <asp:Label ID="Label4" runat="server" Text="Cuotas"></asp:Label>
                     <asp:DropDownList ID="DropDownList2" runat="server" style=" margin-left: 30px">
@@ -51,15 +51,15 @@
                     </asp:DropDownList>
                     <br />
                     <asp:Label ID="lbl_ntc0" runat="server" Text="Documento"></asp:Label>
-                    <asp:DropDownList ID="DropDownList1" runat="server" style=" margin-left: 30px">
+                    <asp:DropDownList ID="DropDownList1" runat="server" style=" margin-left: 30px" ValidationGroup="Group1">
                         <asp:ListItem Value="0">DNI</asp:ListItem>
                         <asp:ListItem Value="1">Cédula</asp:ListItem>
                         <asp:ListItem Value="2">L.C.</asp:ListItem>
                         <asp:ListItem Value="3">L.E.</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:TextBox ID="txtbox_dni" runat="server" style=" margin-left: 30px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtbox_dni">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtbox_dni" ValidationExpression="^\d{8}$">DNI inválido</asp:RegularExpressionValidator>
+                    <asp:TextBox ID="txtbox_dni" runat="server" style=" margin-left: 30px" ValidationGroup="Group1"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtbox_dni" ValidationGroup="Group1">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtbox_dni" ValidationExpression="^\d{8}$" ValidationGroup="Group1">DNI inválido</asp:RegularExpressionValidator>
                     <br />
                        <br />
                     <asp:Label ID="Label5" runat="server" Text="Tarjetas aceptadas por Mercado Pago"></asp:Label>
@@ -137,6 +137,6 @@
     <asp:TextBox ID="TextBox4" runat="server" Height="96px" TextMode="MultiLine" Width="690px"></asp:TextBox>
  
     <br />
-    <asp:Button ID="btnRealizar" runat="server" Height="49px" Text="Realizar Pedido" Width="690px" OnClick="btnRealizar_Click" />
+    <asp:Button ID="btnRealizar" runat="server" Height="49px" Text="Realizar Pedido" Width="690px" OnClick="btnRealizar_Click" ValidationGroup="Group1" />
  
 </asp:Content>

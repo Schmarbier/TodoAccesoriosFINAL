@@ -74,6 +74,12 @@ namespace Vista.Forms
 
                 Session["venta"] = venta;
 
+                //SE VACIA EL CARRITO
+                Session["carrito"] = null;
+                grdCarrito.DataSource = Session["carrito"];
+                grdCarrito.DataBind();
+                lblTotal.Text = "0";
+                lblNoProductos.Text = "No hay productos seleccionados!";
 
                 Response.Redirect("FormaPago.aspx?total=" + lblTotal.Text);
 

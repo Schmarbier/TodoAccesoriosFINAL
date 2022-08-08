@@ -36,7 +36,7 @@ namespace Vista.Forms
                     }
                     else
                     {
-                        lblMensaje.Text = "Actualmente el Usuario se encuentra Deshabilitado";
+                        lblMensaje.Text = "Actualmente el usuario se encuentra deshabilitado";
                         lblMensaje.ForeColor = Color.Red;
                         txt_Mail.Text = "";
                     }
